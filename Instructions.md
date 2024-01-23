@@ -13,8 +13,9 @@ Klocke, Philipp; Loeffler, Moritz; Weiss, Daniel (2024),
 For analysis, Matlab version 2022a was used. 
 The following toolboxes were also acquired and will be needed to run the preprocessing and analysis scripts:
 - [ ] Fieldtrip (version 1.0.1.0) (https://www.fieldtriptoolbox.org) 
-- [ ] Matlab Wavelet Toolbox (version 6.1)
+- [ ] Matlab Wavelet Toolbox (version 6.1) (Make sure, Fieldtrip is added to the MatLab path)
 - [ ] Matlab Signal Processing Toolbox (version 9.0)
+
 
 The following outline represents the order used for preprocessing the data:
 
@@ -35,7 +36,7 @@ The following outline represents the order used for preprocessing the data:
 
 | Step | Preprocessing          |Comment                                                                                             |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
-| 1.1    | "sub-XX-datafile.m"  | Each subject has a dedicated datafile with hardcoded timepoints for walking, stops and FoG. Run this script only once for each subject.|
+| 1.1    | "sub-XX-datafile.m"  | Each subject has a dedicated datafile with hardcoded timepoints for walking, stops and FoG. Run this script only once for each subject. Make sure, Fieldtrip is added to the MatLab path. |
 | 1.2    | "Import_BVA.m"       | Import raw EEG/EMG files. This script needs to be run for each subject and each file separately.   |
 | 1.3    | "Import_JSON.m"      | Import raw JSON (LFP) files. This script needs to be run for each subject and each file separately.|
 | 1.4    | "Import_HDF.m"       | Import raw HDF (IMU) files. This script needs to be run for each subject and each file separately. |
