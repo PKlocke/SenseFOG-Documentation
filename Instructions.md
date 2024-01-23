@@ -31,7 +31,7 @@ The following outline represents the order used for preprocessing the data:
 
 >> Owing to technical reasons, LFP files for sub-17/ses-sitting (sub-17-ses-sitting_lfpalg.mat) have already been created and do not need to imported/preprocessed.
 
->> Owing to technical reasons, LFP files for sub-05/ses-sitting (sub-05-ses-sitting_lfpalg.mat) have already been created and do not need to imported/preprocessed. Also, LFP files for sub-05/ses-standing (sub-05-ses-standing_lfpalg.mat) do not exist.
+>> Owing to technical reasons, LFP files alongside EEG files for sub-05/ses-standing (sub-05-ses-standing_lfpalg.mat & sub-05-ses-standing_eegalg.mat) have already been created and do not need to imported/preprocessed. Also, LFP files for sub-05/ses-sitting do not exist and cannot be processed.
 
 <br />
 <br />
