@@ -15,6 +15,7 @@
 %===================================================================%
 
 %Load EEG and LFP data and IMU data by specifying subject and SESSION of interest
+clear; close all
 subjectdata.generalpath         = uigetdir;                                                        % Example: SenseFOG-main/sub-XX/ses-standing
 cd(subjectdata.generalpath)
 filename                        = extractAfter(subjectdata.generalpath, "-main");                  % Create the specified filename
