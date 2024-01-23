@@ -20,8 +20,8 @@ for i = 1:20
         fprintf(2," \n Missing File for %s \n", names{i}); continue
     elseif isfolder(names{i}) == 1
         fprintf("\n Existing Folder for %s \n ", names{i})
-        full_filename       = append(subjectdata.generalpath, "/", names{i}, "/ses-standing/ieeg/", names{i}, "-ses-standing_lfpalg.mat");
-        full_filename_eeg   = append(subjectdata.generalpath, "/", names{i}, "/ses-standing/eeg/", names{i}, "-ses-standing_eegalg.mat");
+        full_filename       = append(subjectdata.generalpath, filesep, names{i}, filesep, "ses-standing", filesep, "ieeg",filesep, names{i}, "-ses-standing_lfpalg.mat");
+        full_filename_eeg   = append(subjectdata.generalpath, filesep, names{i}, filesep, "ses-standing", filesep, "eeg", filesep, names{i}, "-ses-standing_eegalg.mat");
         if isfile(full_filename) && isfile(full_filename_eeg)
             load(full_filename)                                                                                      % Load standing LFP dataset
             load(full_filename_eeg)                                                                                  % Load standing EEG dataset
@@ -29,7 +29,7 @@ for i = 1:20
         elseif ~isfile(full_filename_eeg);  fprintf(2," \n Missing Standing EEG File for %s \n", names{i}); continue;
         end
 
-        full_filename = append(subjectdata.generalpath, "/", names{i}, "/", names{i}, "-dataevents.mat"); 
+        full_filename = append(subjectdata.generalpath, filesep, names{i}, filesep, names{i}, "-dataevents.mat"); 
         if ~isfile(full_filename);      fprintf(2," \n Missing LFP activity log for %s \n", names{i}); continue; end
         load(full_filename)                                                                                         % Load the LFP activity log from the subject
 
