@@ -25,7 +25,7 @@ The following outline represents the order used for preprocessing the data:
 
 <br />
 
->> Due to ECG-artefacts and their subsequenty removal, all LFP files of subject 10 (ses-sitting, ses-standing, ses-walk, ses-walkws and ses-walkint) have been pre-processed already and are stored under SenseFog-main/sub-10/ses-XX/ieeg. JSON (LFP) files of PD10 therefore should not be imported and (re-)processed to avoid files being overwritten. The original JSON files can still be accessed.
+>> Due to ECG-artefacts and their subsequenty removal, all LFP files of subject 10 (ses-sitting, ses-standing, ses-walk, ses-walkws and ses-walkint) have been pre-processed already and are stored under SenseFog-main/sub-10/ses-XX/ieeg. JSON (LFP) files of PD10 therefore should not be imported and (re-)processed to avoid files being overwritten.
 
 >> Owing to technical reasons, LFP files for sub-11/ses-sitting (sub-11-ses-sitting_lfpalg.mat) have already been created and do not need to imported/preprocessed.
 
