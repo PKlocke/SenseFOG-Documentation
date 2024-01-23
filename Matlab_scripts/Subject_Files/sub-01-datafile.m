@@ -28,8 +28,8 @@ end
 
 % STAND - Manual Input for EEG and LFP Datasets 
 subjectdata.signalpoint.Stand                        = [];
-subjectdata.signalpoint.Stand.EEG_signal             = 19373;                                                                % Sample where DBS Stimulation stops showing a clear downward spike, used for later alignsignals_new.m
-subjectdata.signalpoint.Stand.LFP_signal             = 22074;                                                                % Sample where DBS Stimulation stops showing a clear upward spike, used for later alignsignals_new.m
+subjectdata.signalpoint.Stand.EEG_signal             = 17004;                                                                % Sample where DBS Stimulation stops showing a clear downward spike, used for later alignsignals_new.m
+subjectdata.signalpoint.Stand.LFP_signal             = 22069;                                                                % Sample where DBS Stimulation stops showing a clear upward spike, used for later alignsignals_new.m
 if subjectdata.signalpoint.Stand.LFP_signal > subjectdata.signalpoint.Stand.EEG_signal;                                      % If clause to see if LFP signal is longer than EEG signal 
    subjectdata.signalpoint.Stand.delay = subjectdata.signalpoint.Stand.LFP_signal - subjectdata.signalpoint.Stand.EEG_signal;% Find time-delay between both EEG and LFP
 else subjectdata.signalpoint.Stand.EEG_signal > subjectdata.signalpoint.Stand.LFP_signal;                                    % If clause to see if EEG signal is longer than LFP signal
