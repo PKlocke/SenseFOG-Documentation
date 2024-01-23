@@ -14,16 +14,18 @@
 %Load EEG and LFP data and IMU data by specifying subject and SESSION of interest
 subjectdata.generalpath                 = uigetdir;                                                             % Example: SenseFOG-main/sub-XX/ses-standing
 cd(subjectdata.generalpath)
-filename                                = extractAfter(subjectdata.generalpath,"-main/");                       % Create the specified filename
-filename                                = extractBefore(filename,"/ses-");                                      % Create the specified taskname
-taskname                                = extractAfter(subjectdata.generalpath,"/ses-");                        % Create the specified taskname
+filename                                = extractAfter(subjectdata.generalpath,"-main");                        % Create the specified filename
+filename                                = extractBefore(filename(2:end),"ses-");                                % Create the specified taskname
+filename                                = filename(1:end-1);
+taskname                                = extractAfter(subjectdata.generalpath,"ses-");                         % Create the specified taskname
 taskname                                = append("ses-", taskname);                                             % Create the specified taskname
-filepath                                = extractBefore(subjectdata.generalpath, "/ses");                       % Create the specified filepath
-fullname = append(subjectdata.generalpath, "/ieeg/",filename, "-", taskname, "_lfpalg.mat"); load(fullname)     % LOAD JSON [LFP] FILE
-fullname = append(subjectdata.generalpath, "/eeg/",filename, "-", taskname, "_eegalg.mat"); load(fullname)      % LOAD BVA [EEG] FILE
-fullname = append(subjectdata.generalpath, "/motion/",filename, "-", taskname, "_gaitalg.mat"); load(fullname)  % LOAD HDF [IMU] FILE
-fullname = append(subjectdata.generalpath, "/motion/",filename, "-", taskname, "_gaitfilt_cor.mat"); load(fullname) % LOAD GaitEvents
-fullname = append(filepath, "/",filename, "_datafile.mat"); load(fullname);
+filepath                                = extractBefore(subjectdata.generalpath, "ses");                        % Create the specified filepath
+filepath                                = filepath(1:end-1); 
+fullname = append(subjectdata.generalpath, filesep, "ieeg", filesep, filename, "-", taskname, "_lfpalg.mat"); load(fullname)     % LOAD JSON [LFP] FILE
+fullname = append(subjectdata.generalpath, filesep, "eeg", filesep, filename, "-", taskname, "_eegalg.mat"); load(fullname)      % LOAD BVA [EEG] FILE
+fullname = append(subjectdata.generalpath, filesep, "motion", filesep, filename, "-", taskname, "_gaitalg.mat"); load(fullname)  % LOAD HDF [IMU] FILE
+fullname = append(subjectdata.generalpath, filesep, "motion", filesep, filename, "-", taskname, "_gaitfilt_cor.mat"); load(fullname) % LOAD GaitEvents
+fullname = append(filepath, filesep, filename, "_datafile.mat"); load(fullname);
 
 subjectdata.filepath                    = filepath;                                                             % Create the specified filepath
 subjectdata.fs_eeg                      = 1000;                                                                 % EEG sampling rate is 1000 Hz per default
