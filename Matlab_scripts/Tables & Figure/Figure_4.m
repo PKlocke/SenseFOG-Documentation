@@ -185,10 +185,13 @@ for t = 1:length(filenames)
 end
 
 filepath        = subjectdata.generalpath; cd(filepath)
-filepath        = extractBefore(filepath,"/Coherence-Data");   
-filepath        = append(filepath, "/Table & Figures"); cd(filepath)
+filepath        = extractBefore(filepath,"Time-Frequency-Data");   
+filepath        = char(filepath);
+filepath        = string(filepath(1:end-1));
+filepath        = append(filepath,filesep, "Table & Figures"); cd(filepath)
 save([sprintf('%s.mat',"Figure_4")],"Sensefog_ResultsTable");
 clear i m modes names t 
+
 
 %%
 addpath("customcolormap")
