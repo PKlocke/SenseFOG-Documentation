@@ -20,12 +20,12 @@ for i = 1:20
         fprintf(2," \n Missing File for %s \n", names{i}); continue
     elseif isfolder(names{i}) == 1
         fprintf("\n Existing Folder for %s \n ", names{i})
-        full_filename = append(subjectdata.generalpath, "/", names{i}, "/ses-standing/ieeg/", names{i}, "-ses-standing_lfpalg.mat");
+        full_filename = append(subjectdata.generalpath, filesep, names{i}, filesep, "ses-standing", filesep, "ieeg", filesep, names{i}, "-ses-standing_lfpalg.mat");
         if isfile(full_filename); load(full_filename)                                                               % Load standing LFP dataset
         elseif ~isfile(full_filename); fprintf(2," \n Missing Standing LFP File for %s \n", names{i}); continue
         end
 
-        full_filename = append(subjectdata.generalpath, "/", names{i}, "/", names{i}, "-dataevents.mat"); 
+        full_filename = append(subjectdata.generalpath, filesep, names{i}, filesep, names{i}, "-dataevents.mat"); 
         load(full_filename)                                                                                         % Load the LFP activity log from the subject
 
         %HIGH PASS FILTERING 
