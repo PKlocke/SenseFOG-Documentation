@@ -19,8 +19,8 @@ The following toolboxes were also acquired and will be needed to run the preproc
 The following outline represents the order used for preprocessing the data:
 
 ## 1.0 Preprocessing
-- [ ] Each matlab script requires the specification of the matlab search path so that the script can draw from raw or preprocessed data. As such, a pop-up window will appear at the beginning of most scripts where users can define the search path: 
-Example: /Downloads/SenseFog-main/sub-01/ses-walk
+- [ ] Each matlab script requires the specification of the matlab search path so that the script can draw from raw or preprocessed data. Specifications as to which pathway to choose are given in the comment section at the top of the matlab script (Example: /Downloads/SenseFog-main/sub-01/ses-walk). Subsequently, a pop-up window will appear where users can define the search path: 
+
 
 <br />
 
