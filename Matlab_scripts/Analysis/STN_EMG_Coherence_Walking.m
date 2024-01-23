@@ -24,7 +24,7 @@ for i = 1:20
         fprintf(2," \n Missing Folder for %s ", names{i}); continue
     elseif isfolder(names{i}) == 1
         fprintf("\n Existing Folder for %s ", names{i})
-        full_filename = append(subjectdata.generalpath, "/", names{i},"/", names{i}, "-dataevents.mat");            % Search for the dataevents.mat file in each subfile
+        full_filename = append(subjectdata.generalpath, filesep, names{i},filesep, names{i}, "-dataevents.mat");            % Search for the dataevents.mat file in each subfile
         if isfile(full_filename); 
             Files(i).File = load(full_filename);             
             Files(i).name = sprintf('sub_%02d',i);
