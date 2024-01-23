@@ -166,8 +166,11 @@ c1 = -15; c2 = 15; %Color values
 
 %Plot
 filepath        = subjectdata.generalpath; cd(filepath)
-filepath        = extractBefore(filepath,"/Time-Frequency-Data");   
-filepath        = append(filepath, "/Table & Figures"); cd(filepath)   
+filepath        = extractBefore(filepath,"Time-Frequency-Data");   
+filepath        = char(filepath);
+filepath        = string(filepath(1:end-1));
+filepath        = append(filepath,filesep, "Table & Figures"); cd(filepath)
+
 
 addpath("customcolormap")
 imagefile       = imread("GaitCycleSchematic.png");                                                                 % Load gait cycle schematic
