@@ -112,7 +112,7 @@ for t = 1:length(filenames)
         
         cfg                     = [];               
         cfg.channel             = 'all';            % Nx1 cell-array with selection of channels (default = 'all');
-        cfg.latency             = [3 35];           % [begin end] in seconds or 'all' (default = 'all');
+        cfg.latency             = [5 35];           % [begin end] in seconds or 'all' (default = 'all');
         cfg.avgovertime         = 'no';             % Indicate no if you want to find clusters in time without prior knowledge where to look at, default = 'no';
         cfg.parameter           = 'avg';            % string (default = 'tria' or 'avg'), 'avg' needs to be a parameter in the eventfiles/baselinefiles
         cfg.method              = 'montecarlo';     %
