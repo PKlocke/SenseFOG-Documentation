@@ -41,13 +41,6 @@ for i = 1:length(Files)
     Subjects.(names{i}) = Files(i).File.LFP_Events;
 end
 
-if isfield(Subjects, "sub_20")
-    %Update September 2023 - Gyroscope Data of PD20 is deg/s switch to rad/s as we will switch back to deg/s later
-    Subjects.PD20.Walk.Gyroscope_LF     = rad2deg(Subjects.PD20.Walk.Gyroscope_LF);
-    Subjects.PD20.Walk.Gyroscope_RF     = rad2deg(Subjects.PD20.Walk.Gyroscope_RF);
-    Subjects.PD20.WalkINT.Gyroscope_LF  = rad2deg(Subjects.PD20.WalkINT.Gyroscope_LF);
-    Subjects.PD20.WalkINT.Gyroscope_RF  = rad2deg(Subjects.PD20.WalkINT.Gyroscope_RF);
-end
 
 % Pre-Process LFP and EMG DATA
 
