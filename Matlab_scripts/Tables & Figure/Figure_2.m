@@ -239,7 +239,7 @@ t2.Layout.TileSpan=[1 1];
 
     cd(filepath)
     saveas(gcf,'Figure 2')
-    save([sprintf('%s.mat',"Figure_2"],"Sensefog_ResultsTable");
+    save([sprintf('%s.mat',"Figure_2")],"Sensefog_ResultsTable");
 
     clear a b c C c1 c2 i idx imagefile imratio new_imagefile p1 store subjectfiles t0 t1 t2 d mycolormap stat 
  % *********************** END OF SCRIPT ************************************************************************************************************************
