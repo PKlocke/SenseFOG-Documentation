@@ -43,9 +43,10 @@ names                   = unique([Dominant_Walking.name]);
 for i = 1:length(names)
     
     %Dominant
-    [~, idx] = rmoutliers([Dominant_Walking(ismember(cat(1,Dominant_Walking.name), names{i})).rel_stancetime]);
-    subjectfiles = cat(1,Dominant_Walking(ismember(cat(1,Dominant_Walking.name), names{i}))); subjectfiles(idx) = [];
-    [~, idx] = rmoutliers([Dominant_Walking(ismember(cat(1,Dominant_Walking.name), names{i})).diff]); subjectfiles(idx) = [];
+    subjectfiles = cat(1,Dominant_Walking(ismember(cat(1,Dominant_Walking.name), names{i}))); 
+    [~, idx1] = rmoutliers([Dominant_Walking(ismember(cat(1,Dominant_Walking.name), names{i})).rel_stancetime]);
+    [~, idx2] = rmoutliers([Dominant_Walking(ismember(cat(1,Dominant_Walking.name), names{i})).diff]);     
+    idx = (idx1 + idx2) > 0; subjectfiles(idx) = [];
     
     Avg_dom(i).name                     = names{i};
     Avg_dom(i).Midswing_Peak            = mean(cell2mat({subjectfiles.Midswing_Peak}));
@@ -62,10 +63,11 @@ for i = 1:length(names)
     Avg_dom(i).stridetime_CV            = (std(cell2mat({subjectfiles.diff})) / mean(cell2mat({subjectfiles.diff}))) * 100;
     
     %Non-Dominant
-    [~, idx] = rmoutliers([Nondominant_Walking(ismember(cat(1,Nondominant_Walking.name), names{i})).rel_stancetime]);
-    subjectfiles = cat(1,Nondominant_Walking(ismember(cat(1,Nondominant_Walking.name), names{i}))); subjectfiles(idx) = [];
-    [~, idx] = rmoutliers([Nondominant_Walking(ismember(cat(1,Nondominant_Walking.name), names{i})).diff]); subjectfiles(idx) = [];
-    
+    subjectfiles = cat(1,Nondominant_Walking(ismember(cat(1,Nondominant_Walking.name), names{i}))); 
+    [~, idx1] = rmoutliers([Nondominant_Walking(ismember(cat(1,Nondominant_Walking.name), names{i})).rel_stancetime]);
+    [~, idx2] = rmoutliers([Nondominant_Walking(ismember(cat(1,Nondominant_Walking.name), names{i})).diff]); 
+    idx = (idx1 + idx2) > 0; subjectfiles(idx) = [];
+
     Avg_nondom(i).name                  = names{i};
     Avg_nondom(i).Midswing_Peak         = mean(cell2mat({subjectfiles.Midswing_Peak}));
     Avg_nondom(i).Cadence               = mean(cell2mat({subjectfiles.cadence}));
@@ -103,9 +105,10 @@ end
 
 names                   = unique({GaitData_Pre_Stop.name});
 for i = 1:length(names)
-     [~, idx] = rmoutliers([GaitData_Pre_Stop(ismember(cat(1,{GaitData_Pre_Stop.name}), names{i})).rel_stancetime]);
-     subjectfiles = cat(1,GaitData_Pre_Stop(ismember(cat(1,{GaitData_Pre_Stop.name}), names{i}))); subjectfiles(idx) = [];
-     [~, idx] = rmoutliers([subjectfiles.duration]); subjectfiles(idx) = [];
+     subjectfiles = cat(1,GaitData_Pre_Stop(ismember(cat(1,{GaitData_Pre_Stop.name}), names{i})));  
+     [~, idx1] = rmoutliers([GaitData_Pre_Stop(ismember(cat(1,{GaitData_Pre_Stop.name}), names{i})).rel_stancetime]);
+     [~, idx2] = rmoutliers([subjectfiles.duration]); 
+     idx = (idx1 + idx2) > 0; subjectfiles(idx) = [];
 
       Pre_Stop(i).name                     = names{i};
       Pre_Stop(i).Midswing_Peak            = mean(cell2mat({subjectfiles.Midswing_Peak}));
@@ -145,9 +148,10 @@ end
 
 names                   = unique({GaitData_Pre_Fog.name});
 for i = 1:length(names)
+     subjectfiles = cat(1,GaitData_Pre_Fog(ismember(cat(1,{GaitData_Pre_Fog.name}), names{i})));  
      [~, idx] = rmoutliers([GaitData_Pre_Stop(ismember(cat(1,{GaitData_Pre_Fog.name}), names{i})).rel_stancetime]);
-     subjectfiles = cat(1,GaitData_Pre_Fog(ismember(cat(1,{GaitData_Pre_Fog.name}), names{i}))); subjectfiles(idx) = [];
-     [~, idx] = rmoutliers([subjectfiles.duration]); subjectfiles(idx) = [];
+     [~, idx] = rmoutliers([subjectfiles.duration]); 
+     idx = (idx1 + idx2) > 0; subjectfiles(idx) = [];
 
       Pre_Fog(i).name                     = names{i};
       Pre_Fog(i).Midswing_Peak            = mean(cell2mat({subjectfiles.Midswing_Peak}));
@@ -196,10 +200,12 @@ FINAL_TABLE2.("Walking ( D)")         = strcat({Table_2.Walking_vs_Pre_Fog.Domin
 
 %Save Table
 filepath        = subjectdata.generalpath; cd(filepath)
-filepath        = extractBefore(filepath,"Time-Frequency-Data");   
+filepath        = extractBefore(filepath,"Kinematic-Data");   
 filepath        = char(filepath);
 filepath        = string(filepath(1:end-1));
 filepath        = append(filepath,filesep, "Table & Figures"); cd(filepath)
 writetable(FINAL_TABLE2,"Table_2.xlsx",'Sheet',1,'Range','A1:J10')
+
+%Find table under Sensefog-main/Table & Figures
 
 % *********************** END OF SCRIPT ************************************************************************************************************************
