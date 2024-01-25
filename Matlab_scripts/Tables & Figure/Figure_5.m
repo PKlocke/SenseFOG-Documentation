@@ -145,7 +145,7 @@ clear index k t i frequency_bands filenames Coherence_bands
 %% PLOT EMG ACTIVATION TOGETHER WITH Co-CONTRACTION INDICES
 
 filepath        = subjectdata.generalpath; cd(filepath)
-filepath        = extractBefore(filepath,"Time-Frequency-Data");   
+filepath        = extractBefore(filepath,"Coherence-Data");   
 filepath        = char(filepath);
 filepath        = string(filepath(1:end-1));
 filepath        = append(filepath,filesep, "Table & Figures"); cd(filepath)
