@@ -204,7 +204,7 @@ filepath        = extractBefore(filepath,"Kinematic-Data");
 filepath        = char(filepath);
 filepath        = string(filepath(1:end-1));
 filepath        = append(filepath,filesep, "Table & Figures"); cd(filepath)
-writetable(FINAL_TABLE2,"Table_2.xlsx",'Sheet',1,'Range','A1:J10')
+writetable(FINAL_TABLE2,"Table_2.xlsx",'Sheet',1,'Range','A1:J11')
 
 %Find table under Sensefog-main/Table & Figures
 
