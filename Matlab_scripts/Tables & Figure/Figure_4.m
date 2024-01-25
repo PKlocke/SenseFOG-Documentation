@@ -199,8 +199,8 @@ IMU_time = Sensefog_ResultsTable(1).time;
 fs       = 1000;  
 nfrq     = 200; 
 
-%Set color limits      %Set x-limits            %Set ylimits        %Set coh xlimits
-a = -40; b = 40;       x1 = 0; x2 = 1000;       y1 = 4; y2 = 40;    xl1 = 0.2; xl2 = 0.48;
+%Set color limits  %Set x-limits       %Set ylimits      %Set coh xlimits(STN-TA/STN-GA)  %setxlimits (TA-GA)
+a = -40; b = 40;   x1 = 0; x2 = 1000;  y1 = 4; y2 = 40;  xl1 = 0.2; xl2 = 0.48;           yl1 = 0.2; yl2 = 0.30;
 
   t0 = tiledlayout(3,8);
     %=========PLOTTING STOPPING FILES
@@ -229,12 +229,12 @@ a = -40; b = 40;       x1 = 0; x2 = 1000;       y1 = 4; y2 = 40;    xl1 = 0.2; x
     t2.Layout.TileSpan = [2, 1]; 
     nexttile(t2) %STN-TA COH Bsl STOP
     plot(Sensefog_ResultsTable(1).mean_STN_TA_COH_Bsl,f)
-    ylim([y1 y2]);set(gca,'YScale','log'); xlim([xl1 xl2]); set(gca,'xtick',[]); set(gca,'ytick', [5 10 20 30 50]); box off
+    ylim([y1 y2]);set(gca,'YScale','log'); xlim([yl1 yl2]); set(gca,'ytick', [5 10 20 30 50]); box off
     title({'Standing Coherence', 'STN-TA'},'FontWeight','normal')
 
     nexttile(t2) %STN-GA COH Bsl STOP
     plot(Sensefog_ResultsTable(1).mean_STN_GA_COH_Bsl,f)
-    ylim([y1 y2]);set(gca,'YScale','log'); xlim([xl1 xl2]); set(gca,'xtick',[]); set(gca,'ytick', [5 10 20 30 50]); box off
+    ylim([y1 y2]);set(gca,'YScale','log'); xlim([yl1 yl2]); set(gca,'ytick', [5 10 20 30 50]); box off
     title({'STN-GA'},'FontWeight','normal')
 
     nexttile(t2) %TA-GA  COH Bsl STOP
@@ -305,12 +305,12 @@ a = -40; b = 40;       x1 = 0; x2 = 1000;       y1 = 4; y2 = 40;    xl1 = 0.2; x
     t5.Layout.TileSpan = [2, 1];
     nexttile(t5) %STN-TA COH Bsl FOG
     plot(Sensefog_ResultsTable(2).mean_STN_TA_COH_Bsl,f)
-    ylim([y1 y2]);set(gca,'YScale','log'); xlim([xl1 xl2]); set(gca,'xtick',[]); set(gca,'ytick', [5 10 20 30 50]); box off
+    ylim([y1 y2]);set(gca,'YScale','log'); xlim([yl1 yl2]); set(gca,'ytick', [5 10 20 30 50]); box off
     title({'Standing Coherence', 'STN-TA'},'FontWeight','normal')
 
     nexttile(t5) %STN-GA COH Bsl FOG
     plot(Sensefog_ResultsTable(2).mean_STN_GA_COH_Bsl,f)
-    ylim([y1 y2]);set(gca,'YScale','log'); xlim([xl1 xl2]); set(gca,'xtick',[]); set(gca,'ytick', [5 10 20 30 50]); box off
+    ylim([y1 y2]);set(gca,'YScale','log'); xlim([yl1 yl2]); set(gca,'ytick', [5 10 20 30 50]); box off
     title({'STN-GA'},'FontWeight','normal')
 
     nexttile(t5) %TA-GA  COH Bsl FOG
@@ -355,7 +355,7 @@ a = -40; b = 40;       x1 = 0; x2 = 1000;       y1 = 4; y2 = 40;    xl1 = 0.2; x
     box off; set(gca,'YColor','none');set(gca,'YScale','log');
     title('TA-GA Coherence','FontWeight','normal')
     set(gcf, 'Color', 'white')
-    clear t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 x1 x2 xl1 xl2 y1 y2 p1 p2 ax1 ax2 c a b C pt1 pt2 
+    %clear t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 x1 x2 xl1 xl2 y1 y2 p1 p2 ax1 ax2 c a b C pt1 pt2 
 
     %Save Figure
     cd(filepath)
