@@ -171,9 +171,9 @@ nexttile(t1,[1,1]) %IMU ACCELEROMETER and GYROSCOPE
     plot(IMU_time, -Sensefog_ResultsTable(1).IMU_signal_mean, 'k')    
     hold on 
     patch([IMU_time flip(IMU_time)],[(-Sensefog_ResultsTable(1).IMU_signal_mean + -Sensefog_ResultsTable(1).IMU_signal_std) flip(-Sensefog_ResultsTable(1).IMU_signal_mean - -Sensefog_ResultsTable(1).IMU_signal_std)], 'k','FaceAlpha',0.1, 'EdgeColor', 'none');
-    xline(Sensefog_ResultsTable(1).TO,'k--',{"ips. TO"}, 'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
-    xline(Sensefog_ResultsTable(1).MS,'k--',{"ips. MS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
-    xline(50,'k--',{"ctrl. HS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
+    xline(Sensefog_ResultsTable(1).TO,'k--',{"cntrl. TO"}, 'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
+    xline(Sensefog_ResultsTable(1).MS,'k--',{"cntrl. MS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
+    xline(50,'k--',{"ips. HS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
     set(gca,'xtick',[]); box off; set(gca,'XColor','none');
     ylabel({'Angular Velocity';'[deg./s]'},'FontSize',10); ylim([-200 250])
      title('Walking Gait Cycle','FontWeight','normal')
@@ -273,9 +273,9 @@ nexttile(t5,[1,1]) %IMU ACCELEROMETER and GYROSCOPE
     plot(IMU_time, -Sensefog_ResultsTable(2).IMU_signal_mean, 'k')
     hold on 
     patch([IMU_time flip(IMU_time)],[(-Sensefog_ResultsTable(2).IMU_signal_mean + -Sensefog_ResultsTable(2).IMU_signal_std) flip(-Sensefog_ResultsTable(2).IMU_signal_mean - -Sensefog_ResultsTable(2).IMU_signal_std)], 'k','FaceAlpha',0.1, 'EdgeColor', 'none');
-    xline(Sensefog_ResultsTable(2).TO,'k--',{"ips. TO"}, 'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
-    xline(Sensefog_ResultsTable(2).MS,'k--',{"ips. MS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
-    xline(50,'k--',{"ctrl. HS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
+    xline(Sensefog_ResultsTable(2).TO,'k--',{"ctrl. TO"}, 'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
+    xline(Sensefog_ResultsTable(2).MS,'k--',{"ctrl. MS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
+    xline(50,'k--',{"ips. HS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
     set(gca,'xtick',[]); box off; set(gca,'XColor','none'); ylim([-200 250])
     title('Pre-Stop Gait Cycle','FontWeight','normal')
 
@@ -366,9 +366,9 @@ nexttile(t9,[1,1]) %IMU ACCELEROMETER and GYROSCOPE
     plot(IMU_time, -Sensefog_ResultsTable(3).IMU_signal_mean, 'k')
     hold on 
     patch([IMU_time flip(IMU_time)],[(-Sensefog_ResultsTable(3).IMU_signal_mean + -Sensefog_ResultsTable(3).IMU_signal_std) flip(-Sensefog_ResultsTable(3).IMU_signal_mean - -Sensefog_ResultsTable(3).IMU_signal_std)], 'k','FaceAlpha',0.1, 'EdgeColor', 'none');
-    xline(Sensefog_ResultsTable(2).TO,'k--',{"ips. TO"}, 'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
-    xline(Sensefog_ResultsTable(2).MS,'k--',{"ips. MS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
-    xline(50,'k--',{"ctrl. HS"}, 'LineWidth', 1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
+    xline(Sensefog_ResultsTable(2).TO,'k--',{"ctrl. TO"}, 'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'top','FontSize', 8)
+    xline(Sensefog_ResultsTable(2).MS,'k--',{"ctrl. MS"},  'LineWidth',1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
+    xline(50,'k--',{"ips. HS"}, 'LineWidth', 1,'LabelHorizontalAlignment', 'center', 'LabelVerticalAlignment', 'bottom','FontSize', 8)
     set(gca,'xtick',[]); box off; set(gca,'XColor','none');ylim([-200 250])
     title('Pre-FoG Gait Cycle','FontWeight','normal')
 
