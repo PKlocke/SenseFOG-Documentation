@@ -43,7 +43,7 @@ The following outline represents the order used for preprocessing the data:
 | 1.3    | "Import_JSON.m"      | Import raw JSON (LFP) files. This script needs to be run for each subject and each file separately.|
 | 1.4    | "Import_HDF.m"       | Import raw HDF (IMU) files. This script needs to be run for each subject and each file separately. |
 | 1.5    | "Data_Alignment.m"   | Based on pre-specified timepoints in the sub-XX-datafile.m, this script will align IMU, LFP and EEG timeseries based on the stimulation artefact set at the beginning of each recording                                                  |
-| 1.6    | "Sub_GrandActivity_Log.m" | This script will create a sub-XX.dataevents.mat file which concatenates and stores all IMU, LFP and EEG/EMG information of all gait tasks under the sub-XX folder. Run this script for all gait tasks (ses-walk, ses-walkws, ses-walkint where available) that are relevant for each subject. Kinematic data (heelstrike, toe-off, etc.) have been processed for each subject and task already and are included in the SenseFog-main file.|
+| 1.6    | "Sub_GrandActivity_Log.m" | This script will create a sub-XX.dataevents.mat file which concatenates and stores all IMU, LFP and EEG/EMG information of all gait tasks under the sub-XX folder. Run this script for all gait tasks (ses-walk, ses-walkws, ses-walkint where available) ONLY that are relevant for each subject. Do not include standing or sitting tasks. Kinematic data (heelstrike, toe-off, etc.) have been processed for each subject and task already and are included in the SenseFog-main file.|
 
 <br />
 <br />
