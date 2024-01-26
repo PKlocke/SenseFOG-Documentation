@@ -467,5 +467,5 @@ clear a b c d e f g h fs i k index p1 p2 p3 nfrq t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 
 
 %Save Figure
 cd(filepath)
-saveas(gcf,'Figure_4')
+saveas(gcf,'Figure_5')
 %************************************END OF SCRIPT***********************************************************************
