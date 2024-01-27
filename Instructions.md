@@ -42,7 +42,7 @@ The following outline represents the order used for preprocessing the data:
 | 1.2    | "Import_BVA.m"       | Import raw EEG/EMG files. This script needs to be run for each subject and each file separately.   |
 | 1.3    | "Import_JSON.m"      | Import raw JSON (LFP) files. This script needs to be run for each subject and each file separately.|
 | 1.4    | "Import_HDF.m"       | Import raw HDF (IMU) files. This script needs to be run for each subject and each file separately. |
-| 1.5    | "Data_Alignment.m"   | Based on pre-specified timepoints in the sub-XX-datafile.m, this script will align IMU, LFP and EEG timeseries based on the stimulation artefact set at the beginning of each recording                                                  |
+| 1.5    | "Data_Alignment.m"   | Based on pre-specified timepoints in the sub-XX-datafile.m, this script will align IMU, LFP and EEG timeseries based on the stimulation artefact set at the beginning of each recording. This script needs to be run for each subject and each file separately.                                                                                                                |
 | 1.6    | "Sub_GrandActivity_Log.m" | This script will create a sub-XX.dataevents.mat file which concatenates and stores all IMU, LFP and EEG/EMG information of all gait tasks under the sub-XX folder. Run this script for all gait tasks (ses-walk, ses-walkws, ses-walkint where available) ONLY that are relevant for each subject. Do not include standing or sitting tasks. Kinematic data (heelstrike, toe-off, etc.) have been processed for each subject and task already and are included in the SenseFog-main file.|
 
 <br />
@@ -51,9 +51,9 @@ The following outline represents the order used for preprocessing the data:
 ## 2.0 Data Analysis
 | Step | Analysis              |Comment                                                                                         |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
-| 2.1.1   | "Baseline_Power.m"      | Computes the average LFP power (Continous morlet wavelet analysis) based on the standing dataset for each subject. The average power will later be used for baseline correction. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject. |
-| 2.1.2   | "Select_Sitting_power.m"  | Computes the average power (Continous morlet wavelet analysis) based on the sitting dataset for each subject. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject..|
-| 2.1.3   | "Baseline_Coherence.m"  | Computes the average magnitude squared coherence based on the standing LFP and EMG dataset for each subject. The average magnitude squared coherence will later be used for baseline correction when computing the coherence files. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject.. |
+| 2.1.1   | "Baseline_Power.m"      | Computes the average LFP power (Continous morlet wavelet analysis) based on the standing dataset for each subject. The average power will later be used for baseline correction. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject. Run this script only once.                                                                                                                    |
+| 2.1.2   | "Select_Sitting_power.m"  | Computes the average power (Continous morlet wavelet analysis) based on the sitting dataset for each subject. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject. Run this script only once.                                                  |
+| 2.1.3   | "Baseline_Coherence.m"  | Computes the average magnitude squared coherence based on the standing LFP and EMG dataset for each subject. The average magnitude squared coherence will later be used for baseline correction when computing the coherence files. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject. Run this script only once. Computing time may take up to 10 minutes.                           |
 
 <br />
 <br />
@@ -61,11 +61,12 @@ The following outline represents the order used for preprocessing the data:
 ### 2.2 Power Analyses
 | Step | Analysis              |Comment                                                                                         |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
-| 2.2.1   | "Select_Walking_power.m"    | Based on kinematic timepoints for heelstrikes, compute time-frequency spectra (continous morlet-wavelet transformation) for all gait cycles for each subject and tasks. The current analysis focuses on the disease-dominant STN. | 
-| 2.2.2   | "Select_Stop_power.m"       | Based on kinematic/pre-specified timepoints, select epochs for Stopping using continous morlet-wavelet transformation. | 
-| 2.2.3   | "Select_Freeze_power.m"     | Based on kinematic/pre-specified timepoints, select epochs for freezing using continous morlet-wavelet transformation.| 
-| 2.2.4   | "Select_Pre_Stop_power.m"   | Select up to three gait cycles before onset of a Stop and compute time-frequency analysis on this epoch. | 
-| 2.2.5   | "Select_Pre_Freeze_power.m" | Select up to three gait cycles before onset of Freezing and compute time-frequency analysis on this epoch. |
+| 2.2.1   | "Select_Walking_power.m"    | Based on kinematic timepoints for heelstrikes, compute time-frequency spectra (continous morlet-wavelet transformation) for all gait cycles for each subject and tasks. The current analysis focuses on the disease-dominant STN.
+Computing time for this step is fairly high and may take up to 30 minutes.                                                           | 
+| 2.2.2   | "Select_Stop_power.m"       | Based on kinematic/pre-specified timepoints, select epochs for Stopping using continous morlet-wavelet transformation.                                                                                                              | 
+| 2.2.3   | "Select_Freeze_power.m"     | Based on kinematic/pre-specified timepoints, select epochs for freezing using continous morlet-wavelet transformation.                                                                                                              | 
+| 2.2.4   | "Select_Pre_Stop_power.m"   | Select up to three gait cycles before onset of a Stop and compute time-frequency analysis on this epoch.                                                                                                                          | 
+| 2.2.5   | "Select_Pre_Freeze_power.m" | Select up to three gait cycles before onset of Freezing and compute time-frequency analysis on this epoch.                                                                                                                          |
 
 <br />
 <br />
@@ -73,11 +74,11 @@ The following outline represents the order used for preprocessing the data:
 ### 2.3 Coherence Analyses
 | Step | Analysis              |Comment                                                                                         |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
-| 2.3.1   | "STN_EMG_Coherence_Walking.m"   | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for each gait cycle of each subject and task. Only gait cycles corresponding to the disease dominant STN will be chosen. | 
-| 2.3.2   | "STN_EMG_Coherence_Stop.m"       | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for a selected epoch of Stopping. Only epochs corresponding to the disease dominant STN will be chosen. | 
-| 2.3.3   | "STN_EMG_Coherence_Freeze.m"     | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for a selected epoch of Freeuing. Only epochs corresponding to the disease dominant STN will be chosen. | 
-| 2.3.4   | "STN_EMG_Coherence_Pre_Stop.m"   | Selects timepoints of up to three gait cycles before onset of a stop and computes the magnitude squared coherence for these gait cycles. | 
-| 2.3.5   | "STN_EMG_Coherence_Pre_Freeze.m" | Selects timepoints of up to three gait cycles before onset of freezing and computes the magnitude squared coherence for these gait cycles. |  
+| 2.3.1   | "STN_EMG_Coherence_Walking.m"   | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for each gait cycle of each subject and task. Only gait cycles corresponding to the disease dominant STN will be chosen. Computing time for this step is fairly high and may take upt to 50 minutes.                                                                         | 
+| 2.3.2   | "STN_EMG_Coherence_Stop.m"       | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for a selected epoch of Stopping. Only epochs corresponding to the disease dominant STN will be chosen.                              | 
+| 2.3.3   | "STN_EMG_Coherence_Freeze.m"     | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for a selected epoch of Freeuing. Only epochs corresponding to the disease dominant STN will be chosen.                              | 
+| 2.3.4   | "STN_EMG_Coherence_Pre_Stop.m"   | Selects timepoints of up to three gait cycles before onset of a stop and computes the magnitude squared coherence for these gait cycles.                                                                                   | 
+| 2.3.5   | "STN_EMG_Coherence_Pre_Freeze.m" | Selects timepoints of up to three gait cycles before onset of freezing and computes the magnitude squared coherence for these gait cycles.                                                                                   |  
 
 <br />
 <br />
