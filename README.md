@@ -31,7 +31,7 @@ To access, download and analyze data, please visit the public data repository on
 The SenseFOG-Documentation alongside the provided data requires a standard-computer with enough RAM to support the operations. 
 
 ### Software Requirements
-Computer code and running the analysis pipeline has been written and tested using MacOS Moneterey but is also compatible with Microsoft Windows. For analysis, MatLab version 2022a was used (MathWorks, Nattick, MA, USA, https://de.mathworks.com/products/matlab.html). 
+Computer code and running the analysis pipeline has been written and tested using MacOS Monterey but is also compatible with Microsoft Windows. For analysis, MatLab version 2022a was used (MathWorks, Nattick, MA, USA, https://de.mathworks.com/products/matlab.html). 
 
 
 ## Installation Guide
