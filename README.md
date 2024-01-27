@@ -16,6 +16,7 @@ For additional queries, contact:
       We set out to study the neuronal and neuromuscular basis of freezing of gait (FoG) events in Parkinson's disease (PD) patients while walking by taking advantage
       of subthalamic sensing technology and ambulatory EMG recordings. To differentiate these from events of voluntary stopping, we also recorded stopping events in PD patients.  
 
+<br />
 
 ## Data Repository
 
@@ -24,7 +25,7 @@ To access, download and analyze data, please visit the public data repository on
 “Supraspinal circuits contribute to the failure of antagonistic inhibition and freezing of gait in Parkinson’s disease”, Mendeley Data, V1, doi: 10.17632/c9ckcvjxc7.1
 
 - [ ] https://data.mendeley.com/datasets/c9ckcvjxc7/1
-             
+<br />             
 
 ## System Requirements
 ### Hardware Requirements
@@ -33,9 +34,9 @@ The SenseFOG-Documentation alongside the provided data requires a standard-compu
 ### Software Requirements
 Computer code and running the analysis pipeline has been written and tested using MacOS Monterey but is also compatible with Microsoft Windows. For analysis, MatLab version 2022a was used (MathWorks, Nattick, MA, USA, https://de.mathworks.com/products/matlab.html). 
 
+<br />
 
 ## Installation Guide
-
 ### MatLab Package Dependencies
 Before running the analyses scripts, users should make sure to install the following MatLab toolboxes:
 
@@ -46,6 +47,7 @@ Before running the analyses scripts, users should make sure to install the follo
 Installtime of MatLab as well as specified toolboxes should only take a few minutes.
 Running the entire analysis pipeline will consume up to 20 GB of storage data, provided that all steps of data preprocessing and anaylsis are retained on the storing device.
 
+<br />
 
 ## Demo
 ### Instructions to run on data
@@ -59,10 +61,13 @@ Based on the time points for heel strikes of the left leg, the script will first
 ### Expected run time for demo 
 Run time after loading in the data should not exeed 60 seconds. 
 
+<br />
+
 ## Instructions for use
 ### How to run the software on your data and reproduction instructions
 For detailed instructions on how to proceed with preprocessing of the raw data and analysing the preprocessed data, please see the "Instructions.md" page listed in SenseFOG-Documentation/Instructions.md. 
 
+<br />
 
 ## Additional information on study subjects and data aquisition
 ### Subjects
@@ -82,6 +87,8 @@ Exclusion Criteria:
 - [ ]	Patients with current moderate to severe depression (Beck Depression Inventory [BDI]) ≥ 24 points
 - [ ] Patients with current psychotic symptoms and/or suicidality
 
+<br />
+
 ### Apparatus
 To record local field potentials (LFP), sensing abilities of the Medtronic Percept were used. Data were recorded and saved in a .json file. Additionally, we recorded EEG/EMG data (Brain products, MES Electronics, Gilching, Germany), data being saved in a .bva file. 
 Lastly, gait kinematics were recorded using three lightweight inertial kinematic sensors (Opal, APDM Inc., Portland, OR USA) attached to both left and right ankles and lumbar spine (L5). All kinematic data were exported in hierarchical data format (HDF) and saved in a .h5 file. All experimental sessions were videotaped for later offline-analysis. 
@@ -96,6 +103,7 @@ Recording sessions were the following:
 - [ ] Walking under dual task conditions (serial subtraction task) (approx. 240 seconds duration) (ses-walkint)
 All recordings took place in Med OFF and Stim OFF. 
 
+<br />
 
 ### Task details
 Based on the provided videofiles and kinematic data, we have created start and end time points for the following events:
@@ -116,15 +124,23 @@ Their start was defined as the time point of the heel strike of the leg initiati
 
 To study the transition phases from walking to FoG (termed Pre-FoG) or voluntary stops (termed Pre-Stop), we chose the last three gait cycles before each event. In case of slow walking, gait cycles occurring more than 3000 ms before FoG/Stop onset were excluded. 
 
+<br />
+
 ### Computation of Gait Cycle
 During offline analysis, gait cycles were identified using the accelerometer signal in the anterior-posterior plane (x-axis) and the gyroscope signal in the medial-lateral direction (y-axis) with angular velocity expressed in the sagittal plane. We characterized each gait cycle by identifying the midswing, defined by the gyroscope’s peak-angular velocity exceeding a threshold of 50°/s. Using a time window of 500 ms before and after each midswing, the preceding toe-offs and the succeeding heel strikes were identified. Toe off was marked as the minimum acceleration in the anterior-posterior plane and heel strike as the minimum angular velocity in the sagittal plane before maximum anterior-posterior acceleration, respectively. A 100% full stride encompassed the timespan between two consecutive heel strikes of the same leg. Gait cycles exceeding a duration of > 2.5 s were discarded. Temporal and spatial gait parameters from these regular gait cycles (referred to as “walking” in the following”) were computed for each subject and gait condition.
+
+<br />
 
 ### Assessment of disease laterality
 We obtained further clinical characteristics by recording motor symptoms (MDS-UPDRS part III in medication off / stimulation off and medication on / stimulation on) including evaluation of the MDS-UPDRS III hemibody scores to determine disease-lateralization (calculated as sum of the rigidity (item 3.3), akinesia (items 3.4-3.8), and tremor (items 3.15-3.17) scores for one side, ranging from 0 to 44). The hemibody ranking highest on the MDS-UPDRS sum score was chosen as disease dominant side and the contralateral STN chosen as disease dominant STN.
 
+<br />
+
 ### Experimental location
 Recordings took place on the premises of the University Hospital Medical Center Tübingen, Department of Neurology.
 Gait tasks took place in a 15 x 2.5 m hallway. Two chairs narrowing the corridor were positioned (1 m width) to help provoke FoG events under laboratory conditions.
+
+<br />
 
 ### Ethics
 The study was approved by the Ethics Committee of Tübingen University (166/2020BO1), and all patients provided written informed consent.
