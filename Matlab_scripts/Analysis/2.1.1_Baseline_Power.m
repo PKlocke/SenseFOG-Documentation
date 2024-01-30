@@ -4,17 +4,18 @@
 %This script will import the aligned LFP data from ses-standing which will
 %be used to compute the baseline power [Standing]. The baseline will be
 %stored in sub-XX-dataevents.mat which is created after using the
-%Sub_GrandActivity_Log-m file.
+%Sub_GrandActivity_Log-m file. The code will run through 20 iterations and find 
+%subjects matching with sub-XX (1 through 20) in the subfolders.
 %==============================================================================
 
 subjectdata.generalpath                 = uigetdir;                                                                 % Example: Call the SenseFOG-main file
 cd(subjectdata.generalpath)
 names                                   = cellstr(strsplit(sprintf('sub-%02d ',1:20)));                             % Create a list of sub-names
 
-%Hardcode STN Laterality for each Subject
+%Hardcode STN Laterality for each Subject (only existing subjects are assigned a dominant STN, all non-existing subjects are assigned 'NaN')
 STN_dominance = {'Left'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'Left'; 'Left'; 'NaN'; 'Right'; 'Left'; 'Right'; 'NaN'; 'Right'; 'Left'; 'Right'; 'Right'};
 
-for i = 1:20
+for i = 1:20 %Run through 20 iterations and find each matching subject file in SenseFOG-main
     if ~isfolder(names{i}) == 1
         fprintf(2," \n Missing File for %s \n", names{i}); continue
     elseif isfolder(names{i}) == 1
