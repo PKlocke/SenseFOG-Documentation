@@ -1,7 +1,10 @@
 %%=====  Import_BVA.m ========================================%
 %Original author(s): Philipp Klocke, Moritz Loeffler
 
-%This script will import the original raw data of specified EEG data and save the data to a pre-determined filepath. 
+%This script will import the original raw data of specified EEGs which also includes EMG data 
+%and save the data to a pre-determined filepath. This step is needed as the EEG data contains
+%the M1-sequence, which is the timepoint in the EEG/EMG trace where IMU data recording starts.
+%This timepoint will be neeeded in another step to align both EEG/EMG, LFP and IMU data. 
 %==============================================================================
 close all
 
