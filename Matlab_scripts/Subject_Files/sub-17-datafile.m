@@ -16,8 +16,6 @@ path                        = append(subjectdata.generalpath, '/', subjectdata.f
 cd(path)
 
 
-
-
 % SIT - Manual Input for EEG and LFP Datasets
 subjectdata.signalpoint.Sit = [];
 subjectdata.signalpoint.Sit.EEG_signal          = 17741;                                                                        % Sample where DBS Stimulation stops showing a clear downward spike, used for later alignsignals_new.m
@@ -80,90 +78,30 @@ subjectdata.events_filt.Walk(1).start = 19.9650000000000;
 subjectdata.events_filt.Walk(1).task = 'Walk';
 subjectdata.events_filt.Walk(1).end = 26.7380000000000;
 
-%Turn
-subjectdata.events_filt.Walk(2).start = 28.1210000000000; 
-subjectdata.events_filt.Walk(2).task = 'Turn';
-subjectdata.events_filt.Walk(2).end = 32.0800000000000;
-
 %Walk
 subjectdata.events_filt.Walk(3).start = 33.7570000000000; 
 subjectdata.events_filt.Walk(3).task = 'Walk';
 subjectdata.events_filt.Walk(3).end = 42.2290000000000;
-
-%Turn omit bc of talking
-%subjectdata.events_filt.Walk(4).start = 43.8340000000000; 
-%subjectdata.events_filt.Walk(4).task = 'Turn';
-%subjectdata.events_filt.Walk(4).end = 50.4120000000000;
 
 %Walk
 subjectdata.events_filt.Walk(5).start = 51.6780000000000; 
 subjectdata.events_filt.Walk(5).task = 'Walk';
 subjectdata.events_filt.Walk(5).end = 59.3310000000000;
 
-%Turn
-subjectdata.events_filt.Walk(6).start = 61.2070000000000; 
-subjectdata.events_filt.Walk(6).task = 'Turn';
-subjectdata.events_filt.Walk(6).end = 66.6020000000000;
-
-%Freezing while turning
-subjectdata.events_filt.Walk(7).start = 62.2590000000000; 
-subjectdata.events_filt.Walk(7).task = 'Freezing_turn';
-subjectdata.events_filt.Walk(7).end = 66.6020000000000;
-
 %Walk
 subjectdata.events_filt.Walk(8).start = 69.4950000000000; 
 subjectdata.events_filt.Walk(8).task = 'Walk';
 subjectdata.events_filt.Walk(8).end = 76.2170000000000;
-
-%Turn %omit, talking while turning
-%subjectdata.events_filt.Walk(9).start = 76.7870000000000; 
-%subjectdata.events_filt.Walk(9).task = 'Turn';
-%subjectdata.events_filt.Walk(9).end = 82.0210000000000;
 
 %Walk
 subjectdata.events_filt.Walk(10).start = 82.7170000000000; 
 subjectdata.events_filt.Walk(10).task = 'Walk';
 subjectdata.events_filt.Walk(10).end = 92.4740000000000;
 
-%Turn
-subjectdata.events_filt.Walk(11).start = 93.6570000000000; 
-subjectdata.events_filt.Walk(11).task = 'Turn';
-subjectdata.events_filt.Walk(11).end = 99.6860000000000;
-
-%Freezing while turning
-subjectdata.events_filt.Walk(12).start = 96.1300000000000; 
-subjectdata.events_filt.Walk(12).task = 'Freezing_turn';
-subjectdata.events_filt.Walk(12).end = 99.6860000000000;
-
 %Walk
 subjectdata.events_filt.Walk(13).start = 100.906000000000; 
 subjectdata.events_filt.Walk(13).task = 'Walk';
 subjectdata.events_filt.Walk(13).end = 108.221000000000;
-
-%Turn
-subjectdata.events_filt.Walk(14).start = 113.26; 
-subjectdata.events_filt.Walk(14).task = 'Turn';
-subjectdata.events_filt.Walk(14).end = 122.769000000000;
-
-%Freezing while turning
-subjectdata.events_filt.Walk(15).start = 113.26; 
-subjectdata.events_filt.Walk(15).task = 'Freezing_turn';
-subjectdata.events_filt.Walk(15).end = 122.769000000000;
-
-%Freezing while walking omit, already turn
-%subjectdata.events_filt.Walk(16).start = 113.260000000000; 
-%subjectdata.events_filt.Walk(16).task = 'Freezing_walk';
-%subjectdata.events_filt.Walk(16).end = 114.112;
-
-%Turn
-subjectdata.events_filt.Walk(17).start = 140.932000000000; 
-subjectdata.events_filt.Walk(17).task = 'Turn';
-subjectdata.events_filt.Walk(17).end = 150.293000000000;
-
-%Freezing while turning
-subjectdata.events_filt.Walk(18).start = 144.688000000000; 
-subjectdata.events_filt.Walk(18).task = 'Freezing_turn';
-subjectdata.events_filt.Walk(18).end = 150.293000000000;
 
 %Freezing while walking
 subjectdata.events_filt.Walk(19).start = 152.433000000000; 
@@ -175,16 +113,6 @@ subjectdata.events_filt.Walk(20).start = 159.010000000000;
 subjectdata.events_filt.Walk(20).task = 'Walk';
 subjectdata.events_filt.Walk(20).end = 161.345000000000;
 
-%Freezing while walking %After review 04/23, omit this as no FI increase
-%subjectdata.events_filt.Walk(21).start = 163.007000000000; 
-%subjectdata.events_filt.Walk(21).task = 'Freezing_walk';
-%subjectdata.events_filt.Walk(21).end = 165.321000000000;
-
-%Freezing while walking omit after discussion 
-%subjectdata.events_filt.Walk(22).start = 167.477000000000; 
-%subjectdata.events_filt.Walk(22).task = 'Freezing_walk';
-%subjectdata.events_filt.Walk(22).end = 171.438000000000;
-
 %Freezing while walking 
 subjectdata.events_filt.Walk(23).start = 185.437000000000; 
 subjectdata.events_filt.Walk(23).task = 'Freezing_walk';
@@ -194,16 +122,6 @@ subjectdata.events_filt.Walk(23).end = 187.300000000000;
 subjectdata.events_filt.Walk(24).start = 192.997000000000; 
 subjectdata.events_filt.Walk(24).task = 'Freezing_walk';
 subjectdata.events_filt.Walk(24).end = 198.465000000000;
-
-%Turn
-subjectdata.events_filt.Walk(25).start = 203.219000000000; 
-subjectdata.events_filt.Walk(25).task = 'Turn';
-subjectdata.events_filt.Walk(25).end = 212.783000000000;
-
-%Freezing while turning
-subjectdata.events_filt.Walk(26).start = 207.531000000000; 
-subjectdata.events_filt.Walk(26).task = 'Freezing_turn';
-subjectdata.events_filt.Walk(26).end = 215.096000000000;
 
 %Freezing while walking
 subjectdata.events_filt.Walk(27).start = 215.498000000000; 
@@ -236,11 +154,6 @@ subjectdata.events_filt.WalkWS(3).start = 29.0630000000000;
 subjectdata.events_filt.WalkWS(3).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(3).end = 33.1420000000000;
 
-%Turn
-subjectdata.events_filt.WalkWS(4).start = 33.6990000000000;
-subjectdata.events_filt.WalkWS(4).task = 'Turn'; 
-subjectdata.events_filt.WalkWS(4).end = 37.1400000000000;
-
 %Walk
 subjectdata.events_filt.WalkWS(5).start = 37.8130000000000;
 subjectdata.events_filt.WalkWS(5).task = 'Walk'; 
@@ -256,17 +169,12 @@ subjectdata.events_filt.WalkWS(7).start = 45.1720000000000;
 subjectdata.events_filt.WalkWS(7).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(7).end = 49.1470000000000;
 
-%Turn
-subjectdata.events_filt.WalkWS(8).start = 50.4430000000000;
-subjectdata.events_filt.WalkWS(8).task = 'Turn'; 
-subjectdata.events_filt.WalkWS(8).end = 54.5630000000000;
-
 %Walk
 subjectdata.events_filt.WalkWS(9).start = 55.9270000000000;
 subjectdata.events_filt.WalkWS(9).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(9).end = 58.5560000000000;
 
-%Selected stop, Dauer des Stopps 1,2 s %After review 04/23, omit this stop as too short
+%Selected stop
 subjectdata.events_filt.WalkWS(10).start = 60.9750000000000;
 subjectdata.events_filt.WalkWS(10).task = 'Selected_stop'; 
 subjectdata.events_filt.WalkWS(10).end = 62.096;
@@ -275,11 +183,6 @@ subjectdata.events_filt.WalkWS(10).end = 62.096;
 subjectdata.events_filt.WalkWS(11).start = 62.8830000000000;
 subjectdata.events_filt.WalkWS(11).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(11).end = 67.8880000000000;
-
-%Turn 
-subjectdata.events_filt.WalkWS(12).start = 68.4090000000000;
-subjectdata.events_filt.WalkWS(12).task = 'Turn'; 
-subjectdata.events_filt.WalkWS(12).end = 72.733;
 
 %Walk
 subjectdata.events_filt.WalkWS(13).start = 73.3680000000000;
@@ -296,17 +199,12 @@ subjectdata.events_filt.WalkWS(15).start = 81.9850000000000;
 subjectdata.events_filt.WalkWS(15).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(15).end = 87.0450000000000;
 
-%Turn 
-subjectdata.events_filt.WalkWS(16).start = 87.7280000000000;
-subjectdata.events_filt.WalkWS(16).task = 'Turn'; 
-subjectdata.events_filt.WalkWS(16).end = 92.351;
-
 %Walk
 subjectdata.events_filt.WalkWS(17).start = 93.0030000000000;
 subjectdata.events_filt.WalkWS(17).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(17).end = 96.6010000000000;
 
-%Selected stop %After review 07/23 include as duration > 1000 ms
+%Selected stop
 subjectdata.events_filt.WalkWS(18).start = 97.7110000000000;
 subjectdata.events_filt.WalkWS(18).task = 'Selected_stop'; 
 subjectdata.events_filt.WalkWS(18).end = 99.371;
@@ -326,11 +224,6 @@ subjectdata.events_filt.WalkWS(21).start = 121.762000000000;
 subjectdata.events_filt.WalkWS(21).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(21).end = 125.820000000000;
 
-%Freezing while walking omit bc of sitting
-%subjectdata.events_filt.WalkWS(22).start = 128.92;
-%subjectdata.events_filt.WalkWS(22).task = 'Freezing_walk'; 
-%subjectdata.events_filt.WalkWS(22).end = 129.506000000000;
-
 %Walk
 subjectdata.events_filt.WalkWS(23).start = 144.018000000000;
 subjectdata.events_filt.WalkWS(23).task = 'Walk'; 
@@ -346,22 +239,12 @@ subjectdata.events_filt.WalkWS(25).start = 153.076000000000;
 subjectdata.events_filt.WalkWS(25).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(25).end = 158.123000000000;
 
-%Turn
-subjectdata.events_filt.WalkWS(26).start = 158.692000000000;
-subjectdata.events_filt.WalkWS(26).task = 'Turn'; 
-subjectdata.events_filt.WalkWS(26).end = 167.944000000000;
-
-%Freezing while turning
-subjectdata.events_filt.WalkWS(27).start = 159.929000000000;
-subjectdata.events_filt.WalkWS(27).task = 'Freezing_turn'; 
-subjectdata.events_filt.WalkWS(27).end = 167.944000000000;
-
 %Walk
 subjectdata.events_filt.WalkWS(28).start = 168.720000000000;
 subjectdata.events_filt.WalkWS(28).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(28).end = 172.391000000000;
 
-%Selected stop %After review 04/23, omit this stop as too short but use for Pre-Stop Analysis
+%Selected stop
 subjectdata.events_filt.WalkWS(29).start = 175.371000000000;
 subjectdata.events_filt.WalkWS(29).task = 'Selected_stop'; 
 subjectdata.events_filt.WalkWS(29).end = 176.7630;
@@ -370,16 +253,6 @@ subjectdata.events_filt.WalkWS(29).end = 176.7630;
 subjectdata.events_filt.WalkWS(30).start = 179.064000000000;
 subjectdata.events_filt.WalkWS(30).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(30).end = 181.758000000000;
-
-%Turn, omit after discussion
-%subjectdata.events_filt.WalkWS(31).start = 183.729000000000;
-%subjectdata.events_filt.WalkWS(31).task = 'Turn'; 
-%subjectdata.events_filt.WalkWS(31).end = 190.121000000000;
-
-%Freezing while turning, omit after discussion
-%subjectdata.events_filt.WalkWS(32).start = 185.748000000000;
-%subjectdata.events_filt.WalkWS(32).task = 'Freezing_turn'; 
-%subjectdata.events_filt.WalkWS(32).end = 190.121000000000;
 
 %Selected stop
 subjectdata.events_filt.WalkWS(33).start = 196.530000000000;
@@ -390,16 +263,6 @@ subjectdata.events_filt.WalkWS(33).end = 198.371;
 subjectdata.events_filt.WalkWS(34).start = 199.099000000000;
 subjectdata.events_filt.WalkWS(34).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(34).end = 204.215000000000;
-
-%Turn
-subjectdata.events_filt.WalkWS(35).start = 205.397000000000;
-subjectdata.events_filt.WalkWS(35).task = 'Turn'; 
-subjectdata.events_filt.WalkWS(35).end = 213.181000000000;
-
-%Freezing while turning
-subjectdata.events_filt.WalkWS(36).start = 206.944000000000;
-subjectdata.events_filt.WalkWS(36).task = 'Freezing_turn'; 
-subjectdata.events_filt.WalkWS(36).end = 213.181000000000;
 
 %Selected stop
 subjectdata.events_filt.WalkWS(37).start = 221.206;
