@@ -87,6 +87,7 @@ end
 clear MFF R_cwtstruct L_cwtstruct k m task
 
 %Remove GaitCycles that are close to FOG ===================================================================================
+%This is again a check, should gait cycles during regular walking fall into the transition period before freezing occurs. 
 task    = {'Walk'; 'WalkWS'; 'WalkINT'; 'WalkINT_new'};
 site    = {'Walking_Right_HS'; 'Walking_Left_HS'};
 
@@ -112,7 +113,8 @@ for k = 1:length(names)
     end
 end
 
-%Remove GaitCycles that are close to Stop
+%Remove GaitCycles that are close to Stop =================================================================================
+%This is again a check, should gait cycles during regular walking fall into the transition period before self-selected stops occur. These will be deleted.
 task    = { 'WalkWS'};
 site    = {'Walking_Right_HS'; 'Walking_Left_HS'};
 
