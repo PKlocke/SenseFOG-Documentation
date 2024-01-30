@@ -135,7 +135,8 @@ end
 
 %Align files by cutting off non-overlapping traces
 %The code will call the hardcoded timepoints of the sharp transition artefact and the delay between the transition artefacts of EEG and LFP traces. 
-%Based on the delay, the time series with redundant data will be cut according to the delay. 
+%Based on the delay, the time series with redundant data will be cut according to the delay. This is not an automatic process but requires the prior
+%manual addition of the timepoints in the subject's datafile, as has been done by the author team already. 
 if subjectdata.signalpoint.(task).LFP_signal > subjectdata.signalpoint.(task).EEG_signal
    LFP_signal_R                         = LFP.interp_LFP_right(:,[subjectdata.signalpoint.(task).delay:end]);                                           % Cut LFP file according to time-delay (RIGHT)
    LFP_signal_L                         = LFP.interp_LFP_left(:,[subjectdata.signalpoint.(task).delay:end]);                                            % Cut LFP file according to time-delay (LEFT)
