@@ -74,11 +74,6 @@ subjectdata.events_filt.WalkWS(4).task = 'Walk';
 subjectdata.events_filt.WalkWS(4).start = 49.1540;
 subjectdata.events_filt.WalkWS(4).end = 51.9930;
 
-%Turn, omit after discussion
-%subjectdata.events_filt.WalkWS(5).task = 'Turn'; 
-%subjectdata.events_filt.WalkWS(5).start = 53.4880;
-%subjectdata.events_filt.WalkWS(5).end = 64.3750;
-
 %Walk 4
 subjectdata.events_filt.WalkWS(6).task = 'Walk'; 
 subjectdata.events_filt.WalkWS(6).start = 65.9620;
