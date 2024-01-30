@@ -150,7 +150,6 @@ elseif subjectdata.signalpoint.(task).EEG_signal > subjectdata.signalpoint.(task
     end
 
     IMU_data.imutime                     = (1/subjectdata.fs_eeg):(1/subjectdata.fs_eeg):(length(IMU_data.interp_accelerometer(1).Sensor)/subjectdata.fs_eeg); 
-    IMU_data.eegtime                     = (1/subjectdata.fs_eeg):(1/subjectdata.fs_eeg):(length(IMU_data.interp_accelerometer(1).Sensor)/subjectdata.fs_eeg); 
     end
    
    EEG_signal                           = EEG_File.dat.dataset_new;
