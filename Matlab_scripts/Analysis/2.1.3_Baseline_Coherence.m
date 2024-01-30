@@ -15,7 +15,7 @@ names                                   = cellstr(strsplit(sprintf('sub-%02d ',1
 STN_dominance = {'Left'; 'NaN'; 'Left'; 'NaN'; 'Right'; 'Right'; 'Right'; 'Right'; 'Right'; 'Left'; 'Left'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Right'};
 
 
-for i = 1:20
+for i = 1:20 %Run through 20 iterations and find each matching subject file in SenseFOG-main
     if ~isfolder(names{i}) == 1
         fprintf(2," \n Missing File for %s \n", names{i}); continue
     elseif isfolder(names{i}) == 1
