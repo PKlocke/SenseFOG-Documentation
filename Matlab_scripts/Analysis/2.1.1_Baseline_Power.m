@@ -12,8 +12,7 @@ cd(subjectdata.generalpath)
 names                                   = cellstr(strsplit(sprintf('sub-%02d ',1:20)));                             % Create a list of sub-names
 
 %Hardcode STN Laterality for each Subject
-STN_dominance = {'Left'; 'NaN'; 'Left'; 'NaN'; 'Right'; 'Right'; 'Right'; 'Right'; 'Right'; 'Left'; 'Left'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Right'};
-
+STN_dominance = {'Left'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'Left'; 'Left'; 'NaN'; 'Right'; 'Left'; 'Right'; 'NaN'; 'Right'; 'Left'; 'Right'; 'Right'};
 
 for i = 1:20
     if ~isfolder(names{i}) == 1
