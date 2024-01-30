@@ -3,12 +3,14 @@
 %Date: August 2022
 %Original author(s): Philipp Klocke, Moritz Loeffler
 
-%This script will use the predefined activity time points (walking,
-%freezing, stopping, etc.) and match them to the corresponding
-%heelstrike that was generated in "Detect_GaitEvents.m". For each session,
-%(walk, walkws, and walkint), EEG, LFP and IMU data will be stored in a
-%struct variable and saved. As such, we will have to call each session individually and load EEG, LFP and IMU data
-% Each subject in the dataset will yield one file. 
+%This script will use the predefined activity time points (walking, freezing, stopping, etc.)
+%defined in the subject's datafile (sub-xx_datafile.mat; see sub-xx-datafile.m) and match them 
+%to the corresponding heelstrike. These heelstrike events as well as corresponding toe-offs 
+%were created and meticulously reviewed by the author team and stored under sub-XX-ses-xx_gaitfilt_cor.mat. 
+%See the manuscript/Methods section for a detailed description of how gait events were collected from 
+%the IMU data. For each session (walk, walkws,walkint, walkint_new), EEG, LFP and IMU data will be stored in a
+%struct variable and saved. Standing or sitting files DO NOT need to be called here as we will call them 
+%at a later stage. Call each session individually and load EEG, LFP and IMU data.Each subject in the dataset will yield one file. 
 %===========================================================================%
 
 %Load EEG and LFP data and IMU data by specifying subject and SESSION of interest
