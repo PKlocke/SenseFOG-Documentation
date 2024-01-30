@@ -4,7 +4,8 @@
 %This script will import the aligned LFP and EMG data from ses-standing which will
 %be used to compute the baseline coherence [Standing]. The baseline will be
 %stored in sub-XX-dataevents.mat which is created after using the
-%Sub_GrandActivity_Log-m file.
+%Sub_GrandActivity_Log.m file. The code will run through 20 iterations and find 
+%existing patient files matching the subfolder's name (sub-XX).
 %==============================================================================
 
 subjectdata.generalpath                 = uigetdir;                                                                 % Example: Call the SenseFOG-main file
@@ -12,7 +13,7 @@ cd(subjectdata.generalpath)
 names                                   = cellstr(strsplit(sprintf('sub-%02d ',1:20)));                             % Create a list of sub-names
 
 %Hardcode STN Laterality for each Subject
-STN_dominance = {'Left'; 'NaN'; 'Left'; 'NaN'; 'Right'; 'Right'; 'Right'; 'Right'; 'Right'; 'Left'; 'Left'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Right'};
+STN_dominance = {'Left'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'Left'; 'Left'; 'NaN'; 'Right'; 'Left'; 'Right'; 'NaN'; 'Right'; 'Left'; 'Right'; 'Right'};
 
 
 for i = 1:20 %Run through 20 iterations and find each matching subject file in SenseFOG-main
