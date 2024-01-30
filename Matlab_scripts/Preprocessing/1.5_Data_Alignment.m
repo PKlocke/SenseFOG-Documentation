@@ -1,17 +1,20 @@
 %%=====  Data_Alignment.m ========================================%
 
 %Date: November 2023
-%Original author(s): Philipp Klocke, Moritz Löffler
+%Original author(s): Philipp Klocke, Moritz Loeffler
 
-%This script will help align both EEG and LFP and IMU data according to a mutual
-%beginning. As such, the M1 sequence will be traced in the EEG signal which is the
-%mutual timepoint where IMU and EEG data are synchronized. We will first cut 
-%the overlapping EEG signal.In a second step we will manually identify the 
-%stimulation artefact which is set at the beginning of each recording. The 
-%exact time point of the stimulation artefact that will be used to align the data and 
-%the information is stored in a sub-XX-datafile.m script. The files will be aligned
-%according to the artefact and overlapping traces cut out. The data will be stored in a pre-specified
-%filepath.
+%This script will help align both EEG and LFP and IMU data. As such, the M1 sequence will be 
+%traced in the EEG signal which is the mutual timepoint where IMU and EEG data are synchronized 
+%(automatic). We will first cut the EEG signal before IMU recording started.In a second step we 
+%will manually identify the stimulation train of 1mA, 125 Hz and 100µs which is delivered at the
+%beginning of each LFP/EEG recording. The stimulation offset is followed by a sharp transition  
+%artefact visible in all different time series and occurs a few miliseconds after the stimulation  
+%train ends.We will be using this sharp transition artefact to align the different time series in time.
+%The prespecified timepoints where the transition artefact occurs have been set manually by the authors 
+%already and are stored in the the subject's individual datafile (e.g. see sub-01-datafile.m). 
+%The files will be aligned according to the artefact and redundant traces cut out. The data will
+%be stored in a pre-specified filepath. See the supplementary materials for more information.
+
 %===================================================================%
 
 %Load EEG and LFP data and IMU data by specifying subject and SESSION of interest
