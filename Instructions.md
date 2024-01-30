@@ -19,7 +19,7 @@ The following toolboxes were also acquired and will be needed to run the preproc
 
 The following outline represents the order used for preprocessing the data:
 
-## 1.0 Preprocessing
+## 1.0 Preprocessing (B)
 - [ ] Each matlab script requires the specification of the matlab search path so that the script can draw from raw or preprocessed data. Specifications as to which pathway to choose are given in the comment section at the top of the matlab script (Example: /Downloads/SenseFog-main/sub-01/ses-walk). Subsequently, a pop-up window will appear where users can define the search path: 
 
 
@@ -36,7 +36,7 @@ The following outline represents the order used for preprocessing the data:
 <br />
 <br />
 
-| Step | Preprocessing          |Comment                                                                                             |
+| Step | B) Preprocessing          |Comment                                                                                          |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
 | 1.1    | "sub-XX-datafile.m"  | Each subject has a dedicated datafile with hardcoded timepoints for walking, stops and FoG. Run this script only once for each subject. Make sure, Fieldtrip is added to the MatLab path. |
 | 1.2    | "Import_BVA.m"       | Import raw EEG/EMG files. This script needs to be run for each subject and each file separately.   |
@@ -49,7 +49,7 @@ The following outline represents the order used for preprocessing the data:
 <br />
 
 ## 2.0 Data Analysis
-| Step | Analysis              |Comment                                                                                         |
+| Step | C) Analysis              |Comment                                                                                           |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
 | 2.1.1   | "Baseline_Power.m"      | Computes the average LFP power (Continous morlet wavelet analysis) based on the standing dataset for each subject. The average power will later be used for baseline correction. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject. Run this script only once.                                                                                                                    |
 | 2.1.2   | "Select_Sitting_power.m"  | Computes the average power (Continous morlet wavelet analysis) based on the sitting dataset for each subject. This script requires that matlab script 1.6 "Sub_GrandActivity_Log.m" has been run in the steps prior to this one producing a sub-XX-dataevents.mat file for each subject. Run this script only once.                                                  |
@@ -59,7 +59,7 @@ The following outline represents the order used for preprocessing the data:
 <br />
 
 ### 2.2 Power Analyses
-| Step | Analysis              |Comment                                                                                         |
+| Step | C) Analysis              |Comment                                                                                           |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
 | 2.2.1   | "Select_Walking_power.m"    | Based on kinematic timepoints for heelstrikes, compute time-frequency spectra (continous morlet-wavelet transformation) for all gait cycles for each subject and tasks. The current analysis focuses on the disease-dominant STN.Computing time for this step is fairly high and may take up to 30 minutes.                                                       | 
 | 2.2.2   | "Select_Stop_power.m"       | Based on kinematic/pre-specified timepoints, select epochs for Stopping using continous morlet-wavelet transformation.                                                                                                              | 
@@ -71,7 +71,7 @@ The following outline represents the order used for preprocessing the data:
 <br />
 
 ### 2.3 Coherence Analyses
-| Step | Analysis              |Comment                                                                                         |
+| Step | C) Analysis              |Comment                                                                                         |
 |-----:| ---------------------------|------------------------------------------------------------------------------------------------|
 | 2.3.1   | "STN_EMG_Coherence_Walking.m"   | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for each gait cycle of each subject and task. Only gait cycles corresponding to the disease dominant STN will be chosen. Computing time for this step is fairly high and may take upt to 50 minutes.                                                                         | 
 | 2.3.2   | "STN_EMG_Coherence_Stop.m"       | Based on the corresponding EMG and LFP data, magnitude squared coherence will be computed for a selected epoch of Stopping. Only epochs corresponding to the disease dominant STN will be chosen.                              | 
@@ -84,7 +84,7 @@ The following outline represents the order used for preprocessing the data:
 
 
 ### 3.0 Table & Figures
-| Step | Table&Figures              |Comment                                                                                         |
+| Step | D) Table&Figures              |Comment                                                                                         |
 |-----:| -------------------------------|---------------------------------------------------------------------------------------------|
 | 3.1   | "Figure_1.m" | Creates the figure as depicted in the manuscript. |
 | 3.2   | "Figure_2.m" | Creates the figure as depicted in the manuscript. |
