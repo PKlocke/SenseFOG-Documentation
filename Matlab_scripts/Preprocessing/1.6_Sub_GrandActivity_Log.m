@@ -92,7 +92,7 @@ end
 idx = find(cellfun(@isempty,{subjectdata.events_filt.(name).task}));                                            % Delete any empty cells
 subjectdata.events_filt.(name)(idx) = [];clear idx
 
-%Search for all heelstrike events of one feet that occur during regular "Walking"
+%Search for all heelstrike events of one foot that occur during regular "Walking"
 eventfile                                           = struct2table(subjectdata.events_filt.(name));             % Create an eventfile with all "WALK" Sequences
 index_walk                                          = eventfile(ismember(eventfile.task,'Walk'),:);             % Find those with Walk only
 index_walk                                          = [index_walk.start, index_walk.end];
