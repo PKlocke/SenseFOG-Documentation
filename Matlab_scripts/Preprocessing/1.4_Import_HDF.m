@@ -58,7 +58,6 @@ end
 
 %Creating an EEG Timevector:
 IMU_data.imutime = (1/1000):(1/1000):(length(IMU_data.interp_accelerometer(1).Sensor)/1000);
-IMU_data.eegtime = (1/1000):(1/1000):(length(IMU_data.interp_accelerometer(1).Sensor)/1000);
 
 %Deleting unneccessary data
 IMU_data = rmfield(IMU_data,{'fs';'Accelerometer'; 'Gyroscope'; 'Magnetometer'});
