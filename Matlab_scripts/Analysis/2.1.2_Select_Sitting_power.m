@@ -17,7 +17,7 @@ names                                   = cellstr(strsplit(sprintf('sub-%02d ',1
 %Hardcode STN Laterality for each Subject
 STN_dominance = {'Left'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'Left'; 'Left'; 'NaN'; 'Right'; 'Left'; 'Right'; 'NaN'; 'Right'; 'Left'; 'Right'; 'Right'};
 
-for i = 1:20
+for i = 1:20 %Run through 20 iterations and find each matching subject file in SenseFOG-main
     if ~isfolder(names{i}) == 1
         fprintf(2," \n Missing File for %s \n", names{i}); continue
     elseif isfolder(names{i}) == 1
