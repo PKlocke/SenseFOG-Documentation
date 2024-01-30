@@ -128,11 +128,6 @@ subjectdata.events_filt.Walk(21).start = 210.8050;
 subjectdata.events_filt.Walk(21).task = 'Walk';
 subjectdata.events_filt.Walk(21).end = 219.7680;
 
-% Freezing while walking
-subjectdata.events_filt.Walk(23).start = 222.2000;
-subjectdata.events_filt.Walk(23).task = 'Freezing_turn';
-subjectdata.events_filt.Walk(23).end = 230.7010;
-
 %Freezing while walking 
 subjectdata.events_filt.Walk(24).start = 240.7220;
 subjectdata.events_filt.Walk(24).task = 'Freezing_walk';
