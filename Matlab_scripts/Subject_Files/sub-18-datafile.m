@@ -211,11 +211,6 @@ subjectdata.events_filt.WalkINT(1).start = 11.6900000000000;
 subjectdata.events_filt.WalkINT(1).end = 17.9750000000000;
 
 %Walk
-subjectdata.events_filt.WalkINT(2).task = 'Turn'; 
-subjectdata.events_filt.WalkINT(2).start = 18.5900000000000; 
-subjectdata.events_filt.WalkINT(2).end = 21.871;
-
-%Walk
 subjectdata.events_filt.WalkINT(3).task = 'Walk'; 
 subjectdata.events_filt.WalkINT(3).start = 22.5590000000000; 
 subjectdata.events_filt.WalkINT(3).end = 26.7770000000000;
