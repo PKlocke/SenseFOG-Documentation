@@ -96,7 +96,7 @@ clear numTrial index_M1 M1
 
 
 %==== ALIGNING EEG AND IMU DATA =============================================================================
-%Next, we will align EEG and IMU data accoring to the M1-Sequence
+%Next, we will align EEG and IMU data accoring to the M1-Sequence and cut redundant EEG data.
 EEG_pre_signal          = EEG_File.dat.dataset(:,(sample_M1(1,1):end));
 EEG_File.eegtime_new    = (1/subjectdata.fs_eeg):(1/subjectdata.fs_eeg):(length(EEG_pre_signal)/subjectdata.fs_eeg);
 
@@ -134,6 +134,8 @@ elseif taskname == 'ses-walkint2';  task = 'WalkINT_new';
 end
 
 %Align files by cutting off non-overlapping traces
+%The code will call the hardcoded timepoints of the sharp transition artefact and the delay between the transition artefacts of EEG and LFP traces. 
+%Based on the delay, the time series with redundant data will be cut according to the delay. 
 if subjectdata.signalpoint.(task).LFP_signal > subjectdata.signalpoint.(task).EEG_signal
    LFP_signal_R                         = LFP.interp_LFP_right(:,[subjectdata.signalpoint.(task).delay:end]);                                           % Cut LFP file according to time-delay (RIGHT)
    LFP_signal_L                         = LFP.interp_LFP_left(:,[subjectdata.signalpoint.(task).delay:end]);                                            % Cut LFP file according to time-delay (LEFT)
