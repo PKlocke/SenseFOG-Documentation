@@ -6,7 +6,8 @@
 %stored in sub-XX-dataevents.mat which is created after using the
 %Sub_GrandActivity_Log-m file. Note that the datafiles for sitting in
 %subject 11 and subject 17 have been processed by the authors already. 
-%A sitting file for subject 5 does not exist. 
+%A sitting file for subject 5 does not exist. The code will run through 20 iterations
+%and find subjects matching with sub-XX in SenseFOG-main. 
 %==============================================================================
 
 subjectdata.generalpath                 = uigetdir;                                                                 % Example: Call the SenseFOG-main file
@@ -14,7 +15,7 @@ cd(subjectdata.generalpath)
 names                                   = cellstr(strsplit(sprintf('sub-%02d ',1:20)));                             % Create a list of sub-names
 
 %Hardcode STN Laterality for each Subject
-STN_dominance = {'Left'; 'NaN'; 'Left'; 'NaN'; 'Right'; 'Right'; 'Right'; 'Right'; 'Right'; 'Left'; 'Left'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Left'; 'Right'; 'Right'};
+STN_dominance = {'Left'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'NaN'; 'NaN'; 'NaN'; 'Right'; 'Left'; 'Left'; 'NaN'; 'Right'; 'Left'; 'Right'; 'NaN'; 'Right'; 'Left'; 'Right'; 'Right'};
 
 for i = 1:20
     if ~isfolder(names{i}) == 1
