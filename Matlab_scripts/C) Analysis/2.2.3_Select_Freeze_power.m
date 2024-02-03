@@ -98,7 +98,7 @@ field       = {'Walking_Freeze'};
 imu         = {'Gyroscope_RF'; 'Gyroscope_LF'};
 input       = {'L_wt' 'R_wt'; 'L_frequency_domain' 'R_frequency_domain'; 'baseline_pwr_L' 'baseline_pwr_R'; 'L_wt_org' 'R_wt_org'; 'baseline_L_org' 'baseline_R_org'};
 
-Freeze_ERP  = struct; 
+Freeze_evt  = struct; 
 
 for k = 1:length(names)
     for m = 1:length(task)
@@ -161,38 +161,38 @@ for k = 1:length(names)
                 end
 
                   
-                if isfield(Freeze_ERP, (names{k})) == 0; Freeze_ERP.(names{k}).Left_STN = []; Freeze_ERP.(names{k}).Right_STN = [];end
-                if isempty(Freeze_ERP.(names{k}).Right_STN) == 1; l = 0; end  
+                if isfield(Freeze_evt, (names{k})) == 0; Freeze_evt.(names{k}).Left_STN = []; Freeze_evt.(names{k}).Right_STN = [];end
+                if isempty(Freeze_evt.(names{k}).Right_STN) == 1; l = 0; end  
                
-                Freeze_ERP.(names{k}).Right_STN(i+l).name                    = names{k};
-                Freeze_ERP.(names{k}).Left_STN(i+l).name                     = names{k};
-                Freeze_ERP.(names{k}).Right_STN(i+l).duration                = Subjects.(names{k}).(task{m}).(field{1})(i).duration;
-                Freeze_ERP.(names{k}).Left_STN(i+l).duration                 = Subjects.(names{k}).(task{m}).(field{1})(i).duration;
-                Freeze_ERP.(names{k}).Left_STN(i+l).frequency_domain         = Subjects.(names{k}).(task{m}).(field{1})(i).L_frequency_domain;          %Normalized PSD Spectra
-                Freeze_ERP.(names{k}).Right_STN(i+l).frequency_domain        = Subjects.(names{k}).(task{m}).(field{1})(i).R_frequency_domain;          %Normalized PSD Spectra
-                Freeze_ERP.(names{k}).Left_STN(i+l).wt                       = Subjects.(names{k}).(task{m}).(field{1})(i).L_wt;                        %Baseline-subtracted (Standing) TF Data
-                Freeze_ERP.(names{k}).Right_STN(i+l).wt                      = Subjects.(names{k}).(task{m}).(field{1})(i).R_wt;                        %Baseline-subtracted (Standing) TF Data
-                Freeze_ERP.(names{k}).Left_STN(i+l).wt_org                   = Subjects.(names{k}).(task{m}).(field{1})(i).L_wt_org;                    %Non-Baseline subtracted TF Data
-                Freeze_ERP.(names{k}).Right_STN(i+l).wt_org                  = Subjects.(names{k}).(task{m}).(field{1})(i).R_wt_org;                    %Non-Baseline subtracted TF Data
-                Freeze_ERP.(names{k}).Left_STN(i+l).IMU                      = Subjects.(names{k}).(task{m}).(field{1})(i).Gyroscope_RF;
-                Freeze_ERP.(names{k}).Right_STN(i+l).IMU                     = Subjects.(names{k}).(task{m}).(field{1})(i).Gyroscope_LF;
+                Freeze_evt.(names{k}).Right_STN(i+l).name                    = names{k};
+                Freeze_evt.(names{k}).Left_STN(i+l).name                     = names{k};
+                Freeze_evt.(names{k}).Right_STN(i+l).duration                = Subjects.(names{k}).(task{m}).(field{1})(i).duration;
+                Freeze_evt.(names{k}).Left_STN(i+l).duration                 = Subjects.(names{k}).(task{m}).(field{1})(i).duration;
+                Freeze_evt.(names{k}).Left_STN(i+l).frequency_domain         = Subjects.(names{k}).(task{m}).(field{1})(i).L_frequency_domain;          %Normalized PSD Spectra
+                Freeze_evt.(names{k}).Right_STN(i+l).frequency_domain        = Subjects.(names{k}).(task{m}).(field{1})(i).R_frequency_domain;          %Normalized PSD Spectra
+                Freeze_evt.(names{k}).Left_STN(i+l).wt                       = Subjects.(names{k}).(task{m}).(field{1})(i).L_wt;                        %Baseline-subtracted (Standing) TF Data
+                Freeze_evt.(names{k}).Right_STN(i+l).wt                      = Subjects.(names{k}).(task{m}).(field{1})(i).R_wt;                        %Baseline-subtracted (Standing) TF Data
+                Freeze_evt.(names{k}).Left_STN(i+l).wt_org                   = Subjects.(names{k}).(task{m}).(field{1})(i).L_wt_org;                    %Non-Baseline subtracted TF Data
+                Freeze_evt.(names{k}).Right_STN(i+l).wt_org                  = Subjects.(names{k}).(task{m}).(field{1})(i).R_wt_org;                    %Non-Baseline subtracted TF Data
+                Freeze_evt.(names{k}).Left_STN(i+l).IMU                      = Subjects.(names{k}).(task{m}).(field{1})(i).Gyroscope_RF;
+                Freeze_evt.(names{k}).Right_STN(i+l).IMU                     = Subjects.(names{k}).(task{m}).(field{1})(i).Gyroscope_LF;
 
                 %BASELINE STAND
-                Freeze_ERP.(names{k}).Left_STN(i+l).baseline                 = Subjects.(names{k}).Baseline_Power.baseline_pwr_L ./  sum(Subjects.(names{k}).Baseline_Power.baseline_pwr_L([10:33, 37:48, 52:90],:))'; %Normalize here
-                Freeze_ERP.(names{k}).Right_STN(i+l).baseline                = Subjects.(names{k}).Baseline_Power.baseline_pwr_R ./  sum(Subjects.(names{k}).Baseline_Power.baseline_pwr_R([10:33, 37:48, 52:90],:))'; %Normalize here                                
-                Freeze_ERP.(names{k}).Right_STN(i+l).baseline_org            = Subjects.(names{k}).Baseline_Power.baseline_pwr_R;
-                Freeze_ERP.(names{k}).Left_STN(i+l).baseline_org             = Subjects.(names{k}).Baseline_Power.baseline_pwr_L;
-                l                                                            = length(Freeze_ERP.(names{k}).Right_STN);
+                Freeze_evt.(names{k}).Left_STN(i+l).baseline                 = Subjects.(names{k}).Baseline_Power.baseline_pwr_L ./  sum(Subjects.(names{k}).Baseline_Power.baseline_pwr_L([10:33, 37:48, 52:90],:))'; %Normalize here
+                Freeze_evt.(names{k}).Right_STN(i+l).baseline                = Subjects.(names{k}).Baseline_Power.baseline_pwr_R ./  sum(Subjects.(names{k}).Baseline_Power.baseline_pwr_R([10:33, 37:48, 52:90],:))'; %Normalize here                                
+                Freeze_evt.(names{k}).Right_STN(i+l).baseline_org            = Subjects.(names{k}).Baseline_Power.baseline_pwr_R;
+                Freeze_evt.(names{k}).Left_STN(i+l).baseline_org             = Subjects.(names{k}).Baseline_Power.baseline_pwr_L;
+                l                                                            = length(Freeze_evt.(names{k}).Right_STN);
                 
             end 
     end
 end
 
 
-fieldnum = fieldnames(Freeze_ERP);
+fieldnum = fieldnames(Freeze_evt);
 for k = 1:length(fieldnum)
-    idx     = find(cellfun(@isempty,{Freeze_ERP.(fieldnum{k}).Left_STN.wt}));                                      % Clear Files that have no content
-    Freeze_ERP.(fieldnum{k}).Left_STN(idx) = []; Freeze_ERP.(fieldnum{k}).Right_STN(idx) = [];  clear idx 
+    idx     = find(cellfun(@isempty,{Freeze_evt.(fieldnum{k}).Left_STN.wt}));                                      % Clear Files that have no content
+    Freeze_evt.(fieldnum{k}).Left_STN(idx) = []; Freeze_evt.(fieldnum{k}).Right_STN(idx) = [];  clear idx 
 end
 
 %CLEAN-UP
@@ -203,30 +203,30 @@ FILES.f         = Subjects.(names{1}).Walk.f;
 FILES.Option    = Option;
 FILES.names     = names; 
 
-FILES.Freeze_ERP = []; %Create empty struct for all Self-Selected Stop
+FILES.Freeze_evt = []; %Create empty struct for all Self-Selected Stop
 for k = 1:length(names)
-    if isfield(Freeze_ERP, (names{k})) == 0; continue; end
-    if isfield(FILES.Freeze_ERP, 'wt_r') == 0; FILES.Freeze_ERP.wt_r = []; FILES.Freeze_ERP.wt_l = []; end
-        datafile_r             = Freeze_ERP.(names{k}).Right_STN;
-        datafile_l             = Freeze_ERP.(names{k}).Left_STN;
-        FILES.Freeze_ERP.wt_r  = cat(2,datafile_r, FILES.Freeze_ERP.wt_r); %Concatenate all Stop Events 
-        FILES.Freeze_ERP.wt_l  = cat(2,datafile_l, FILES.Freeze_ERP.wt_l); %Concatenate all Stop Events 
+    if isfield(Freeze_evt, (names{k})) == 0; continue; end
+    if isfield(FILES.Freeze_evt, 'wt_r') == 0; FILES.Freeze_evt.wt_r = []; FILES.Freeze_evt.wt_l = []; end
+        datafile_r             = Freeze_evt.(names{k}).Right_STN;
+        datafile_l             = Freeze_evt.(names{k}).Left_STN;
+        FILES.Freeze_evt.wt_r  = cat(2,datafile_r, FILES.Freeze_evt.wt_r); %Concatenate all Stop Events 
+        FILES.Freeze_evt.wt_l  = cat(2,datafile_l, FILES.Freeze_evt.wt_l); %Concatenate all Stop Events 
 end
 
-idx = find(cellfun(@isempty,{FILES.Freeze_ERP.wt_r.wt}));
-FILES.Freeze_ERP.wt_r(idx)     = []; FILES.Freeze_ERP.wt_l(idx) = [];
-FILES.Freeze_ERP.Option        = FILES.Option; 
+idx = find(cellfun(@isempty,{FILES.Freeze_evt.wt_r.wt}));
+FILES.Freeze_evt.wt_r(idx)     = []; FILES.Freeze_evt.wt_l(idx) = [];
+FILES.Freeze_evt.Option        = FILES.Option; 
 
 
 Freezing_Files = [];
 for k = 1:length(names)
-    if isfield(Freeze_ERP, (names{k})) == 0; continue; end
+    if isfield(Freeze_evt, (names{k})) == 0; continue; end
     %Check for STN Dominance
     if      Subjects.(names{k}).Baseline_Power.STN_dominance == "Left"; 
-            Freezing_Files = cat(2,Freezing_Files,Freeze_ERP.(names{k}).Left_STN);
+            Freezing_Files = cat(2,Freezing_Files,Freeze_evt.(names{k}).Left_STN);
 
     elseif  Subjects.(names{k}).Baseline_Power.STN_dominance == "Right";
-            Freezing_Files = cat(2,Freezing_Files,Freeze_ERP.(names{k}).Right_STN);
+            Freezing_Files = cat(2,Freezing_Files,Freeze_evt.(names{k}).Right_STN);
     end
 end
 
