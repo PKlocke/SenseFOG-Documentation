@@ -93,7 +93,7 @@ for k = 1:length(names)
             if isfield(Subjects.(names{k}).(task{m}), field) == 0; continue; end
             datafile = Subjects.(names{k}).(task{m}).(field{1});
             for i = 1:length(datafile)
-                if datafile(i).duration < 1.0; continue; end                                                        % Exclude Stop Durations that last shorter than 1000 ms
+                if datafile(i).duration < 1.0; continue; end                                                        % Exclude Stop Durations that last shorter than 1 s
                 pretrialtime    = 0;                                                                                % Baseline before onset of stopping
                 epochduration   = 1000;                                                                             % Use an Epoch of 1000 ms
                 start           = single(1000*Subjects.(names{k}).(task{m}).(field{1})(i).start) - pretrialtime;    % Transition time of ca. 1 seconds
