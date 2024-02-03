@@ -311,13 +311,11 @@ end
 
 
 %PLACE FILES INTO DOMINANT AND NON-DOMINANT CATEGORIES
-COHERENCE.DOMINANT_STN = []; COHERENCE.NON_DOMINANT_STN = [];
+COHERENCE.DOMINANT_STN = []; 
 for i = 1:length(COHERENCE.Walking_Left_HS)
     name_idx        = {COHERENCE.Walking_Left_HS(i).name};
     stn_dominance   = Subjects.(name_idx{1}).Baseline_Coherence.STN_dominance;  
-    if stn_dominance == "Left"
-        COHERENCE.NON_DOMINANT_STN = [COHERENCE.NON_DOMINANT_STN, COHERENCE.Walking_Left_HS(i)];
-    elseif stn_dominance == "Right"
+    if stn_dominance == "Right"
          COHERENCE.DOMINANT_STN = [COHERENCE.DOMINANT_STN, COHERENCE.Walking_Left_HS(i)];
     end
 end
@@ -325,9 +323,7 @@ end
 for i = 1:length(COHERENCE.Walking_Right_HS)
    name_idx        = {COHERENCE.Walking_Right_HS(i).name};
    stn_dominance   = Subjects.(name_idx{1}).Baseline_Coherence.STN_dominance;  
-    if stn_dominance == "Right"
-        COHERENCE.NON_DOMINANT_STN = [COHERENCE.NON_DOMINANT_STN, COHERENCE.Walking_Right_HS(i)];
-    elseif stn_dominance == "Left"
+   if stn_dominance == "Left"
          COHERENCE.DOMINANT_STN = [COHERENCE.DOMINANT_STN, COHERENCE.Walking_Right_HS(i)];
     end
 end
