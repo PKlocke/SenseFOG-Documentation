@@ -14,6 +14,7 @@
 
 subjectdata.generalpath                 = uigetdir;                                                                 % Example: Call the SenseFOG-main file
 cd(subjectdata.generalpath)
+%Create a list of 20 place-holder names and find names that match with subjects in our SenseFOG main file   
 names                                   = cellstr(strsplit(sprintf('sub-%02d ',1:20)));                             % Create a list of sub-names
 
 for i = 1:20
