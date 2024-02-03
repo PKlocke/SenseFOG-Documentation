@@ -8,12 +8,15 @@
 %first compute the morlet wavelet spectra for the LFP time series and
 %segment the time-frequency spectra according to the prespecified time
 %points. In a second step, we will use the standing baseline and normalize
-%the power spectra yielding the mean %-change from standing.
-%The current script will focus on data from the disease dominant STN.
+%the power spectra yielding the mean %-change from standing. Third, the code
+%will concatenate all freezing epochs together, from walking as mono task
+%and walking with dual task interference. The current script will focus on
+%data from the disease dominant STN.
 %===========================================================================%
 
 subjectdata.generalpath                 = uigetdir;                                                                 % Example: Call the SenseFOG-main file
 cd(subjectdata.generalpath)
+%Create a list of 20 place-holder names and find names that match with subjects in our SenseFOG main file   
 names                                   = cellstr(strsplit(sprintf('sub-%02d ',1:20)));                             % Create a list of sub-names
 
 for i = 1:20
@@ -54,7 +57,7 @@ names    = fieldnames(Subjects);
 %forward and backward) before applying continuous Morlet wavelet transformation
 [b,a] = butter(6,1/(1000/2),'high');
 
-task = {'Walk','WalkWS','WalkINT','WalkINT_new'};
+task = {'Walk','WalkWS','WalkINT','WalkINT_new'};         % call all freezing events,  from walking as mono task and walking with dual task interference
 for k = 1:length(names)
     for m = 1:length(task)
           if isfield(Subjects.(names{k}), task(m)) == 0; continue; end
