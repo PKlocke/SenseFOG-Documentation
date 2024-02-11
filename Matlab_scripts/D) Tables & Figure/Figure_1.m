@@ -243,7 +243,7 @@ nexttile
     for i = 1:length(Sensefog_ResultsTable(4).startpoint)
         rectangle('Position',[Sensefog_ResultsTable(4).startpoint(i), ylimits(1)*0.98 , (Sensefog_ResultsTable(4).stoppoint(i) - Sensefog_ResultsTable(4).startpoint(i)),  0.1], 'FaceColor',[.7 .7 .7], 'EdgeColor', 'none') 
     end
-    legend([ax1 ax2 ax3], Sensefog_ResultsTable(2).y_name, Sensefog_ResultsTable(3).x_name,Sensefog_ResultsTable(2).x_name,'Box', 'off','FontSize', 10)
+    legend([ax1 ax2 ax3], Sensefog_ResultsTable(2).y_name, Sensefog_ResultsTable(4).x_name,Sensefog_ResultsTable(2).x_name,'Box', 'off','FontSize', 10)
     ylabel('Relative Power [dB]'); xlabel('Frequency [Hz]')
     set(gcf,'color','w'); box off
 
