@@ -456,11 +456,11 @@ nexttile(t14) %Pre-FOG Cocontraction Index
     set(gcf,'Color','White')
 
 
-a = annotation('textbox',[0.02 0.80 .2 .2],'String','a','EdgeColor','none'); a.FontSize = 18; a.FontWeight = "bold";
-b = annotation('textbox',[0.02 0.71 .2 .2],'String','b','EdgeColor','none'); b.FontSize = 18; b.FontWeight = "bold";
-c = annotation('textbox',[0.02 0.55 .2 .2],'String','c','EdgeColor','none'); c.FontSize = 18; c.FontWeight = "bold";
-d = annotation('textbox',[0.02 0.31 .2 .2],'String','d','EdgeColor','none'); d.FontSize = 18; d.FontWeight = "bold";
-e = annotation('textbox',[0.02 0.07 .2 .2],'String','e','EdgeColor','none'); e.FontSize = 18; e.FontWeight = "bold";
+a = annotation('textbox',[0.02 0.80 .2 .2],'String','A','EdgeColor','none'); a.FontSize = 18; a.FontWeight = "bold";
+b = annotation('textbox',[0.02 0.71 .2 .2],'String','B','EdgeColor','none'); b.FontSize = 18; b.FontWeight = "bold";
+c = annotation('textbox',[0.02 0.55 .2 .2],'String','C','EdgeColor','none'); c.FontSize = 18; c.FontWeight = "bold";
+d = annotation('textbox',[0.02 0.31 .2 .2],'String','D','EdgeColor','none'); d.FontSize = 18; d.FontWeight = "bold";
+e = annotation('textbox',[0.02 0.07 .2 .2],'String','E','EdgeColor','none'); e.FontSize = 18; e.FontWeight = "bold";
 
 clear a b ans c C i k m t x1 x2 y1 y2 fs t0 t1 t2 t3 t4 nfrq pt1 pt2 c d e f g h i j k l m alpha
 clear a b c d e f g h fs i k index p1 p2 p3 nfrq t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 t14 x1 x2 y1 y2 C
