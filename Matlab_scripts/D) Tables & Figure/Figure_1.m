@@ -228,10 +228,10 @@ nexttile
     hold on 
     patch([Sensefog_ResultsTable(2).z flip(Sensefog_ResultsTable(2).z)],[(Sensefog_ResultsTable(2).y + Sensefog_ResultsTable(2).y_sem) flip(Sensefog_ResultsTable(2).y - Sensefog_ResultsTable(2).y_sem)], c2,'FaceAlpha',0.25, 'EdgeColor', 'none');
       
-    ax2 = plot(Sensefog_ResultsTable(4).z,Sensefog_ResultsTable(4).x,'Color', c1, 'LineWidth', 1);
+    ax2 = plot(Sensefog_ResultsTable(4).z,Sensefog_ResultsTable(4).x,'Color', c3, 'LineWidth', 1);
     patch([Sensefog_ResultsTable(4).z flip(Sensefog_ResultsTable(4).z)],[(Sensefog_ResultsTable(4).x + Sensefog_ResultsTable(4).x_sem) flip(Sensefog_ResultsTable(4).x - Sensefog_ResultsTable(4).x_sem)], c1,'FaceAlpha',0.25, 'EdgeColor', 'none');
 
-    ax3 = plot(Sensefog_ResultsTable(2).z,Sensefog_ResultsTable(2).x,'Color', c3, 'LineWidth', 1);
+    ax3 = plot(Sensefog_ResultsTable(2).z,Sensefog_ResultsTable(2).x,'Color', c1, 'LineWidth', 1);
     hold on
     patch([Sensefog_ResultsTable(2).z flip(Sensefog_ResultsTable(2).z)],[(Sensefog_ResultsTable(2).x + Sensefog_ResultsTable(2).x_sem) flip(Sensefog_ResultsTable(2).x - Sensefog_ResultsTable(2).x_sem)], c3,'FaceAlpha',0.25, 'EdgeColor', 'none');
  
@@ -243,14 +243,14 @@ nexttile
     for i = 1:length(Sensefog_ResultsTable(4).startpoint)
         rectangle('Position',[Sensefog_ResultsTable(4).startpoint(i), ylimits(1)*0.98 , (Sensefog_ResultsTable(4).stoppoint(i) - Sensefog_ResultsTable(4).startpoint(i)),  0.1], 'FaceColor',[.7 .7 .7], 'EdgeColor', 'none') 
     end
-    legend([ax1 ax2 ax3], Sensefog_ResultsTable(2).y_name, Sensefog_ResultsTable(4).x_name,Sensefog_ResultsTable(2).x_name,'Box', 'off','FontSize', 10)
+    legend([ax1 ax3 ax2], Sensefog_ResultsTable(2).y_name, Sensefog_ResultsTable(2).x_name,Sensefog_ResultsTable(4).x_name,'Box', 'off','FontSize', 10)
     ylabel('Relative Power [dB]'); xlabel('Frequency [Hz]')
     set(gcf,'color','w'); box off
 
 
-    a = annotation('textbox',[0.07 0.745 .2 .2],'String','a','EdgeColor','none'); a.FontSize = 18; a.FontWeight = "bold";
-    b = annotation('textbox',[0.350 0.745 .2 .2],'String','b','EdgeColor','none'); b.FontSize = 18; b.FontWeight = "bold";
-    c = annotation('textbox',[0.63 0.745 .2 .2],'String','c','EdgeColor','none'); c.FontSize = 18; c.FontWeight = "bold";
+    a = annotation('textbox',[0.07 0.745 .2 .2],'String','A','EdgeColor','none'); a.FontSize = 18; a.FontWeight = "bold";
+    b = annotation('textbox',[0.350 0.745 .2 .2],'String','B','EdgeColor','none'); b.FontSize = 18; b.FontWeight = "bold";
+    c = annotation('textbox',[0.63 0.745 .2 .2],'String','C','EdgeColor','none'); c.FontSize = 18; c.FontWeight = "bold";
 
    saveas(gcf,'Figure_1','m')
 
