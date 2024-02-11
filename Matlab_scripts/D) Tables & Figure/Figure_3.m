@@ -348,10 +348,10 @@ t8.Layout.TileSpan = [2, 1];
 
     set(gcf,'Color', 'white')
 
-    a = annotation('textbox',[0.05 0.75 .2 .2],'String','a','EdgeColor','none'); a.FontSize = 18; a.FontWeight = "bold";
-    b = annotation('textbox',[0.50 0.75 .2 .2],'String','b','EdgeColor','none'); b.FontSize = 18; b.FontWeight = "bold";
-    c = annotation('textbox',[0.05 0.30 .2 .2],'String','c','EdgeColor','none'); c.FontSize = 18; c.FontWeight = "bold";
-    d = annotation('textbox',[0.50 0.30 .2 .2],'String','d','EdgeColor','none'); d.FontSize = 18; d.FontWeight = "bold";
+    a = annotation('textbox',[0.05 0.75 .2 .2],'String','A','EdgeColor','none'); a.FontSize = 18; a.FontWeight = "bold";
+    b = annotation('textbox',[0.50 0.75 .2 .2],'String','B','EdgeColor','none'); b.FontSize = 18; b.FontWeight = "bold";
+    c = annotation('textbox',[0.05 0.30 .2 .2],'String','C','EdgeColor','none'); c.FontSize = 18; c.FontWeight = "bold";
+    d = annotation('textbox',[0.50 0.30 .2 .2],'String','D','EdgeColor','none'); d.FontSize = 18; d.FontWeight = "bold";
 
     cd(filepath)
     saveas(gcf,'Figure_3')
